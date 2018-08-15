@@ -15,14 +15,14 @@
 
 development:
   password: 5ca70a9cebfbc01945381281a9b10216
-  theme_id: 11773607987
+  theme_id: 32323960883
   store: rudigernreich.myshopify.com
   ignore_files:
     - config/settings_data.json
 
 production:
-  password:
-  theme_id: "live"
-  store: your-shop.myshopify.com
+  password: 5ca70a9cebfbc01945381281a9b10216
+  theme_id: 11773607987
+  store: rudigernreich.myshopify.com
   ignore_files:
     - config/settings_data.json

@@ -35,7 +35,7 @@ $rudigrey: #999;
 $rudigreen: #2ad675;
 $rudinude: #fbddd8;
 
-$fontsizebase: 12px;
+$fontsizebase: 120px;
 $lineheightbase: 16px;
 $lineheightbutton: 32px;
 $letterspacingbase: 0.05rem;
@@ -107,8 +107,8 @@ body {
 	cursor: default;
 	-webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
 }
-@media only screen 
-	  and (min-device-width: 320px) 
+@media only screen
+	  and (min-device-width: 320px)
 	  and (max-device-width: 568px)
 	  and (-webkit-min-device-pixel-ratio: 2)
 	  and (orientation: portrait) {
@@ -346,8 +346,8 @@ input {
 		background: transparent;
 		max-width: 210px;
 	}
-	@media only screen 
-	  and (min-device-width: 320px) 
+	@media only screen
+	  and (min-device-width: 320px)
 	  and (max-device-width: 568px)
 	  and (-webkit-min-device-pixel-ratio: 2)
 	  and (orientation: portrait) {
@@ -421,23 +421,23 @@ input {
 	}
 }
 
-@media only screen 
-  and (min-device-width: 375px) 
-  and (max-device-width: 812px) 
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 812px)
   and (-webkit-min-device-pixel-ratio: 3)
-  and (orientation: portrait) { 
+  and (orientation: portrait) {
 	.collection-list {
 		height: calc(100vh - 205px);
 	}
 }
-@media only screen 
-  and (min-device-width: 320px) 
+@media only screen
+  and (min-device-width: 320px)
   and (max-device-width: 568px)
   and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: portrait) {
 	.collection-list {
 		height: calc(100vh - 170px);
-	}	
+	}
 }
 
 @include media-query($medium-up) {
@@ -453,9 +453,9 @@ input {
 }
 
 .collection-nav {
-	-webkit-user-select: none;  
-	-moz-user-select: none;    
-	-ms-user-select: none;      
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
 	user-select: none;
 	z-index: 10;
 	width: 100%;
@@ -488,7 +488,7 @@ input {
     background: $rudibeige;
     border: $rudiborder;
     border-bottom: 0;
-    
+
     .current-left, .current-right {
       border-bottom: $rudiborder;
       svg {
@@ -521,7 +521,7 @@ input {
       }
     }
   }
-  
+
   .show {display:block;}
   .hide {display:none;}
 }
@@ -617,7 +617,7 @@ input {
 			position: relative;
 		}
 
-		
+
 		.content-item-card-2 {
 			.content-item-info {
 				position: absolute;
@@ -633,7 +633,7 @@ input {
 				text-align: center;
 
 				.content-item-title {
-					
+
 				}
 				.collection-title {
 					font-family: FuturaBold;
@@ -738,7 +738,7 @@ input {
 				}
 			}
 		}
-		
+
 		&:after {
 			content: "";
 			display: table;
@@ -830,7 +830,7 @@ input {
 				}
 			}
 		}
-		
+
 		.product-info {
 			padding-top: 20px;
 			.product-price {
@@ -907,7 +907,7 @@ input {
 				width: 66%;
 
 				.product-images {
-					
+
 					.product-img {
 						img {
 							border-right: $rudiborder;
