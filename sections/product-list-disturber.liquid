@@ -1,0 +1,271 @@
+<div class="product-list">
+  {% comment %}
+  {% if collection.image != blank %}
+  <div class="list-item content-item">
+    <div class="content-item-card-1">
+      {{ collection.image.src | img_url: '680x680' | img_tag: collection.image.alt }}
+    </div>
+    <div class="content-item-card-2">
+      <div class="content-item-info">
+        <div class="content-item-title collection-title">{{ collection.title }}</div>
+        {% if collection.description != blank %}
+        <div class="content-item-description">
+          {{ collection.description }}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  {% endcomment %}
+
+  {% for product in collection.products %}
+    {% assign productPosition = forloop.index %}
+    <div class="list-item product-item {% for tag in product.tags %}{{ tag }}{% endfor %}">
+      {% if product.featured_image != blank %}
+      
+        <a class="product-item-link" href="{{ product.url | within: collection }}">
+          <div class="product-item-card-1">
+            {{ product.featured_image.src | img_url: '680x680' | img_tag: product.featured_image.alt }}
+          </div>
+          <div class="product-item-card-2">
+            {{ product.images[1].src | img_url: '680x680' | img_tag: product.featured_image.alt }}
+          </div>
+        </a>
+      {% endif %}
+      
+      
+      <div class="product-item-title">
+        <p>
+          <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+        </p>
+        <p>
+          {% if product.compare_at_price > product.price %}
+
+            {% if product.price_varies %}
+              {%- assign sale_price = product.price | money -%}
+              {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
+            {% else %}
+              {{ 'products.product.on_sale' | t }}
+              {{ product.price | money }}
+            {% endif %}
+
+          {% else %}
+
+            {% if product.price_varies %}
+              {%- assign price = product.price | money -%}
+              {{ 'products.product.from_text_html' | t: price: price }}
+            {% else %}
+              {{ product.price | money }}
+            {% endif %}
+
+          {% endif %}
+
+          {% if product.compare_at_price > product.price %}
+            <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+            <s>{{ product.compare_at_price | money }}</s>
+          {% endif %}
+
+          {% unless product.available %}
+            {{ 'products.product.sold_out' | t }}
+          {% endunless %}
+        </p>
+      </div>
+    </div>
+
+    {% comment %}
+      Display collection header
+      date: 23.07.18
+      author Pascal Garber <pascal@jumplink.eu
+    {% endcomment %}
+    {% comment %}
+    {% if productPosition == 1 %}
+      <div class="list-item product-item collection-header">
+        <div class="product-item-link">
+          <div class="product-item-card-1">
+            {% if collection.image %}
+              {{ collection.image.src | img_url: '680x680' | img_tag: collection.image.alt }}
+            {% endif %}
+          </div>
+          <div class="product-item-card-2">
+            <div class="text-content">
+              <div class="title">{{ collection.title }}</div>
+              <div class="text">{{ collection.description }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+    {% endcomment %}
+
+    {% comment %}
+      Display disturbers
+      date: 23.07.18
+      author Pascal Garber <pascal@jumplink.eu
+    {% endcomment %}
+    {% for disturbers in section.blocks %}
+      {% if productPosition == disturbers.settings.position %}
+        {% if disturbers.settings.collection == collection.handle %}
+
+          {% comment %} If no url and no content / image is set use the collection image / content as header {% endcomment %}
+          {% if collection.image %}
+            {% assign image = collection.image %}
+          {% endif %}
+
+          {% capture content %}
+            <div class="title">{{ collection.title }}</div>
+            <div class="text">{{ collection.description }}</div>
+          {% endcapture %}
+
+          
+          {% comment %} If url links to blog article get image and content of them {% endcomment %}
+          {% if disturbers.settings.url contains "/blogs/" %}
+            {% assign articleHandle = disturbers.settings.url | remove_first: "/blogs/" %}
+            {% assign article = articles[articleHandle] %}
+            {% assign image = article.image %}
+            {% capture content %}
+              <div class="title">{{ article.title }}</div>
+              <div class="text">
+                {{ article.excerpt_or_content }}
+              </div>
+            {% endcapture %}
+          {% endif %}
+
+          {% comment %} If url links to collection get image and content of them {% endcomment %}
+          {% if disturbers.settings.url contains "/collections/" %}
+            {% assign collectionHandle = disturbers.settings.url | remove_first: "/collections/" %}
+            {% assign collection = collections[collectionHandle] %}
+
+            {% capture content %}
+              <div class="title">{{ collection.title }}</div>
+              <div class="text">
+                {{ collection.description }}
+              </div>
+            {% endcapture %}
+
+          {% endif %}
+
+          {% comment %} If url links to product get image and content of them {% endcomment %}
+          {% if disturbers.settings.url contains "/products/" %}
+            {% assign productHandle = disturbers.settings.url | remove_first: "/products/" %}
+            {% assign productdisturbers = all_products[productHandle] %}
+            {% assign image = productdisturbers.featured_image %}
+            {% assign content = productdisturbers.title %}
+
+            {% capture content %}
+              <div class="title">{{ productdisturbers.title }}</div>
+              <div class="text"></div>
+            {% endcapture %}
+
+          {% endif %}
+
+          {% comment %} If url links to page get title of them {% endcomment %}
+          {% if disturbers.settings.url contains "/pages/" %}
+            {% assign pagesHandle = disturbers.settings.url | remove_first: "/pages/" %}
+            {% assign page = pages[pagesHandle] %}
+
+            {% capture content %}
+              <div class="title">{{ page.title }}</div>
+              <div class="text"></div>
+            {% endcapture %}
+
+          {% endif %}
+
+          {% comment %} Overwrite image if custom image is set {% endcomment %}
+          {% if disturbers.settings.image != blank %}
+            {% assign image = disturbers.settings.image %}
+          {% endif %}
+
+          {% comment %} Overwrite content if custom content is set {% endcomment %}
+          {% if disturbers.settings.content != blank %}
+            {% assign content = disturbers.settings.content %}
+          {% endif %}
+
+          <div class="list-item product-item product-disturbers">
+            <a class="product-item-link" href="{{ disturbers.settings.url }}">
+              <div class="product-item-card-1">
+                {{ image.src | img_url: '680x680' | img_tag: image.alt }}
+              </div>
+              <div class="product-item-card-2">
+                <div class="text-content">
+                  {{ content }}
+                </div>
+              </div>
+            </a>
+          </div>
+
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+
+  {% else %}
+    {% if collection.handle == 'all' and collection.all_vendors.size == 0 and collection.all_types.size == 0 %}
+      {% for i in (1..8) %}
+        <a href="#">
+          {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+          {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg placeholder-svg--small' }}
+        </a>
+
+        <p>
+          <a href="#">{{ 'homepage.onboarding.product_title' | t }}</a>
+        </p>
+
+        <p>
+          {{ 1999 | money }}
+        </p>
+      {% endfor %}
+    {% else %}
+      <p>{{ 'collections.general.no_matches' | t }}</p>
+    {% endif %}
+
+  {% endfor %}
+</div>
+
+{% schema %}
+  {
+    "name": "Product list content",
+    "settings": [
+
+    ],
+    "blocks": [
+      {
+        "type": "disturber",
+        "name": "Content in Collection",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Content image"
+          },
+          {
+            "type": "richtext",
+            "id": "content",
+            "label": "Content"
+          },
+          {
+            "id": "collection",
+            "type": "collection",
+            "label": "Collection",
+            "info": "Select the collection in which the content should be displayed"
+          },
+          {
+            "id": "url",
+            "type": "url",
+            "label": "Url",
+            "info": "Where the content should link to"
+          },
+          {
+            "type":   "range",
+            "id":     "position",
+            "min":       0,
+            "max":       100,
+            "step":      1,
+            "unit":      "Ptr",
+            "label":     "Display after",
+            "default":   4
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

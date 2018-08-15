@@ -1,0 +1,103 @@
+<div id="sidebar">
+  <ul id="site-nav">
+    {% for link in linklists[section.settings.main_linklist].links %}
+      {%- assign child_list_handle = link.title | handleize -%}
+      {% if menus[child_list_handle].links != blank %}
+        <li class="site-nav--has-submenu{% if link.active %} site-nav--active{% endif %}">
+          <a href="{{ link.url }}" class="site-nav__link">
+            {{ link.title }}
+          </a>
+          <ul class="site-nav__submenu">
+            {% for childlink in menus[child_list_handle].links %}
+              <li {% if childlink.active %}class="site-nav--active"{% endif %}>
+                <a href="{{ childlink.url }}" class="site-nav__link">{{ childlink.title | escape }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </li>
+      {% else %}
+        <li {% if link.active %}class="site-nav--active"{% endif %}>
+          <a href="{{ link.url }}" class="site-nav__link">{{ link.title }}</a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</div>
+
+<div data-section-id="{{ section.id }}" data-section-type="header-section">
+  <header id="site-header" class="site-header" role="banner">
+    <nav role="navigation">
+      <a href="#" class="mobile-menu-link" data-toggle="body" id="sidebar-toggle">
+        <span class="span-hamburger">{% include 'icon-hamburger' %}</span>
+        <span class="span-close hidden">{% include 'icon-close' %}</span>
+      </a>
+    </nav>
+
+    {% if template.name == 'index' %}
+      <h1 itemscope itemtype="http://schema.org/Organization">
+    {% else %}
+      <div class="h1" itemscope itemtype="http://schema.org/Organization">
+    {% endif %}
+        <a href="/" itemprop="url" class="site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}">
+          {% if section.settings.logo != blank %}
+            <img src="{{ section.settings.logo | img_url: '600x600' }}"
+                 
+                 alt="{{ section.settings.logo.alt | default: shop.name }}"
+                 itemprop="logo">
+          {% else %}
+            <h1>{{ shop.name }}</h1>
+          {% endif %}
+        </a>
+    {% if template.name == 'index' %}
+      </h1>
+    {% else %}
+      </div>
+    {% endif %}
+    
+    <a class="cart-link" href="/cart">{% include 'icon-cart' %}{% if cart.item_count != 0 %}<div class="cart-full"></div>{% endif %}</a>
+
+    {% if shop.customer_accounts_enabled %}
+      <ul>
+        {% if customer %}
+          <li>
+            {% if customer.first_name != blank %}
+              {% capture first_name %}<a href="/account">{{ customer.first_name }}</a>{% endcapture %}
+              {{ 'layout.customer.logged_in_as_html' | t: first_name: first_name }}
+            {% else %}
+              <a href="/account">{{ 'layout.customer.account' | t }}</a>
+            {% endif %}
+          </li>
+          <li>
+            {{ 'layout.customer.log_out' | t | customer_logout_link }}
+          </li>
+        {% else %}
+          <li>
+            {{ 'layout.customer.log_in' | t | customer_login_link }}
+          </li>
+          <li>
+            {{ 'layout.customer.create_account' | t | customer_register_link }}
+          </li>
+        {% endif %}
+      </ul>
+    {% endif %}
+  </header>  
+</div>
+{% schema %}
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo image"
+      },
+      
+      {
+        "type": "link_list",
+        "id": "main_linklist",
+        "label": "Menu",
+        "default": "main-menu"
+      }
+    ]
+  }
+{% endschema %}

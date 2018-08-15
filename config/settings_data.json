@@ -1,0 +1,186 @@
+{
+  "current": {
+    "type_base_size": "16px",
+    "color_primary": "#000",
+    "color_body_text": "#000",
+    "social_sharing_blog": true,
+    "share_facebook": true,
+    "share_twitter": true,
+    "share_pinterest": true,
+    "social_twitter_link": "",
+    "social_facebook_link": "",
+    "social_pinterest_link": "",
+    "social_instagram_link": "",
+    "social_snapchat_link": "",
+    "social_tumblr_link": "",
+    "social_youtube_link": "",
+    "social_vimeo_link": "",
+    "cart_notes_enable": true,
+    "favicon": "shopify:\/\/shop_images\/favicon.png",
+    "checkout_header_image": "",
+    "checkout_logo_image": "shopify:\/\/shop_images\/Rudi_Gernreich_Logo_small_aa1e22e3-5140-41b5-b723-ff7ef54382b8.png",
+    "checkout_logo_position": "center",
+    "checkout_logo_size": "small",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#f7f3f0",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#ffffff",
+    "checkout_heading_font": "Helvetica Neue",
+    "checkout_body_font": "Helvetica Neue",
+    "checkout_accent_color": "#000000",
+    "checkout_button_color": "#000000",
+    "checkout_error_color": "#d60908",
+    "sections": {
+      "collection-list": {
+        "type": "collection-list",
+        "blocks": {
+          "1532099017916": {
+            "type": "collection",
+            "settings": {
+              "collection": "test-collection"
+            }
+          },
+          "collection-list-0": {
+            "type": "collection",
+            "settings": {
+              "collection": "ready-to-wear"
+            }
+          },
+          "collection-list-1": {
+            "type": "collection",
+            "settings": {
+              "collection": "swimwear"
+            }
+          },
+          "collection-list-2": {
+            "type": "collection",
+            "settings": {
+              "collection": "balaclavas"
+            }
+          },
+          "1525018027711": {
+            "type": "collection",
+            "settings": {
+              "collection": "collaborator"
+            }
+          }
+        },
+        "block_order": [
+          "1532099017916",
+          "collection-list-0",
+          "collection-list-1",
+          "collection-list-2",
+          "1525018027711"
+        ],
+        "settings": {
+          "intro_img": "shopify:\/\/shop_images\/05-rudi-eed.jpg",
+          "headline_text": "Help \nStamp Out \nRudi Gernreich."
+        }
+      },
+      "header": {
+        "type": "header",
+        "settings": {
+          "logo": "shopify:\/\/shop_images\/Rudi_Gernreich_Logo_3281bd00-f7b7-443a-b774-32a18f5f5f12.png",
+          "main_linklist": "sidebar-menu"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "footer_linklist": "footer",
+          "show_payment_icons": false
+        }
+      },
+      "product": {
+        "type": "product",
+        "settings": {}
+      },
+      "related-products": {
+        "type": "related-products",
+        "settings": {
+          "show_related_products": true,
+          "related_title": "You might also like",
+          "related_grid_num": "4",
+          "related_grid_row": "1"
+        }
+      },
+      "product-list-disturber": {
+        "type": "product-list-disturber",
+        "blocks": {
+          "1532345582956": {
+            "type": "disturber",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/03-rudi-bw.jpg",
+              "content": "<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Vestibulum id ligula porta felis euismod semper.<\/p>",
+              "collection": "test-collection",
+              "url": "shopify:\/\/blogs\/content\/time-magazine-cover",
+              "position": 4
+            }
+          },
+          "1532445773814": {
+            "type": "disturber",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/03-rudi.jpg",
+              "content": "",
+              "collection": "test-collection",
+              "url": "",
+              "position": 8
+            }
+          },
+          "1532537497746": {
+            "type": "disturber",
+            "settings": {
+              "image": "",
+              "content": "",
+              "collection": "test-collection",
+              "url": "",
+              "position": 2
+            }
+          }
+        },
+        "block_order": [
+          "1532345582956",
+          "1532445773814",
+          "1532537497746"
+        ],
+        "settings": {}
+      }
+    },
+    "content_for_index": [
+      "collection-list"
+    ]
+  },
+  "presets": {
+    "Default": {
+      "sections": {
+        "collection-list": {
+          "type": "collection-list",
+          "blocks": {
+            "collection-list-0": {
+              "type": "collection",
+              "settings": {}
+            },
+            "collection-list-1": {
+              "type": "collection",
+              "settings": {}
+            },
+            "collection-list-2": {
+              "type": "collection",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "collection-list-0",
+            "collection-list-1",
+            "collection-list-2"
+          ],
+          "settings": {}
+        }
+      },
+      "content_for_index": [
+        "collection-list"
+      ]
+    }
+  }
+}
