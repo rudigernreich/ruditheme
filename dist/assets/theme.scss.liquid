@@ -2211,6 +2211,9 @@ input {
 	z-index: 10;
 	left: 21px;
 	position: fixed;
+	@include media-query($medium-up) {
+		display: inline-block;
+	}
 	h1 {
 		font-weight: normal;
 	}
@@ -2286,11 +2289,16 @@ input {
 
 		.product-info {
 			padding-top: 20px;
+			@include media-query($medium-up) {
+				margin-top: 35px;
+			}
 			.product-price {
+				/*
 				font-family: FuturaBold;
 				font-size: 1.5em;
 				line-height: 2em;
 				letter-spacing: 0;
+				*/
 			}
 			select {
 			    font-size: 1.2em;
