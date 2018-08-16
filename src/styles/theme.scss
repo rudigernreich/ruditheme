@@ -121,7 +121,7 @@ body.open-sidebar {
     left: $sidenavwidth;
     overflow-x: hidden;
     #sidebar {
-    	left: 0;
+		left: 0;
     }
     .collection-nav {
     	left: $sidenavwidth !important;
@@ -313,17 +313,68 @@ input {
     left: -$sidenavwidth;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
-    @include animationFromLeft(0.4s);
+	@include animationFromLeft(0.4s);
+	display: flex;
+	flex-wrap: wrap;
+	overflow-y: scroll;
     .site-nav {
+		width: 100%;
+		&:last-of-type {
+			align-self: flex-end;
+		}
 		li {
 			line-height: 30px;
 			border-bottom: $rudiborder;
 			text-align: center;
+			&:first-of-type {
+				border-top: $rudiborder;
+				margin-top: -1px;
+			}
 		}
 		a {
 			width: 100%;
 			display: block;
 			line-height: 30px;
+		}
+		#subscribe-form {
+			width: 100%;
+		}
+		#subscribe-box {
+			display: flex;
+			flex-flow: row wrap;
+			border-top: $rudiborder;
+			padding: 10px;
+
+			#subscribe-result {
+				padding-bottom: 5px;
+				margin: 0 auto;
+				text-align: center;
+			}
+
+			#sidebar-result {
+				width: 100%;
+				text-align: center;
+				padding-bottom: 5px;
+			}
+			#email-input {
+				width: 80%;
+				
+				input {
+					width: 100%;
+					padding: 7px;
+					line-height: 14px;
+				}
+			}
+			#submit-button {
+				width: 20%;
+
+				input#change-border {
+					width: 100%;
+					margin-left: -1px;
+					padding: 7px;
+					line-height: 14px;
+				}
+			}
 		}
     }
 }
@@ -1059,6 +1110,12 @@ footer {
 	}
 }
 
+textarea:focus, input:focus{
+    outline: none;
+}
+*:focus {
+    outline: none;
+}
 ::selection {
 	background: $rudibeige;
 	color: $rudired;
