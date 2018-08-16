@@ -1050,3 +1050,12 @@ footer {
 		margin-right: 21px;
 	}
 }
+
+::selection {
+	background: $rudibeige;
+	color: $rudired;
+}
+::-moz-selection {
+	background: $rudibeige;
+	color: $rudired;
+}
