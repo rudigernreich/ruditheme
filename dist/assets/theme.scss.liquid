@@ -1880,6 +1880,7 @@ input {
   .show {display:block;}
   .hide {display:none;}
 }
+
 .product-list {
 	padding-top: 31px;
 	p {
@@ -1914,7 +1915,7 @@ input {
 				flex-direction: column;
 				align-items: center;
 				justify-content: center;
-				padding: 0 15px;
+				padding: 0 30px;
 				font-family: FuturaBold;
 				text-transform: none;
 				letter-spacing: 0;
@@ -1941,6 +1942,22 @@ input {
 
 	.product-distruber {
 		margin-bottom: 30px;
+
+		.product-item-link {
+			&:hover {
+				cursor: pointer;
+			}
+
+			.product-item-card-1 {
+				&:hover {
+					background: $rudidarkbeige;
+				}
+			}
+			.product-item-card-2 {
+				visibility: hidden;
+				display: none;
+			}
+		}
 	}
 
 	.content-item {
@@ -1990,6 +2007,7 @@ input {
 		}
 	}
 }
+
 .pagination {
 	text-align: center;
 	line-height: $lineheightbutton;
@@ -2014,14 +2032,14 @@ input {
 				.product-item-card-1 {
 					margin-left: 0;
 					width: 100%;
-					padding-bottom: 150%;
+					padding-bottom: 180%;
 					position: relative;
 				}
 				.product-item-card-2 {
 					margin-left: 0;
 					width: 100%;
 					opacity: 0;
-					padding-bottom: 150%;
+					padding-bottom: 180%;
 					position: absolute;
 					left: 0;
 					top: 0;
@@ -2036,9 +2054,21 @@ input {
 					font-size: 3vw;
 					line-height: 4vw;
 					em {
-						line-height: 1vw;
+						margin-top: 30px;
+						font-size: 2vw;
+						line-height: 3vw;
 					}
 				}
+				img {
+					position: absolute;
+					height: 115%;
+					width: 100%;
+					left: 0;
+					top: -9%;
+					object-fit: cover;
+					background: transparent;
+				}
+				
 			}
 			.product-item-title {
 				padding: 0 15px 0 2px;
@@ -2055,14 +2085,14 @@ input {
 				display: block;
 				margin-left: 0;
 				width: 100%;
-				padding-bottom: 150%;
+				padding-bottom: 180%;
 			}
 			.content-item-card-2 {
 				display: block;
 				margin-left: 0;
 				width: 100%;
 				top: 0;
-				padding-bottom: 150%;
+				padding-bottom: 180%;
 				position: absolute;
 				opacity: 0;
 				transition: .1s opacity ease-in;
@@ -2122,6 +2152,7 @@ input {
 					font-size: 1.5vw;
 					line-height: 2vw;
 					em {
+						font-size: 1vw;
 						line-height: 1vw;
 					}
 				}
@@ -2132,7 +2163,7 @@ input {
 		}
 		.content-item {
 			flex-basis: 25%;
-			margin-left: -1px;
+			margin-left: 2px;
 			vertical-align: top;
 			position: relative;
 			display: block;
@@ -2142,10 +2173,11 @@ input {
 				margin-left: 0;
 				width: 100%;
 				padding-bottom: 150%;
+				margin-left: -1px;
 			}
 			.content-item-card-2 {
 				display: block;
-				margin-left: 0;
+				margin-left: -1px;
 				width: 100%;
 				top: 0;
 				padding-bottom: 150%;
