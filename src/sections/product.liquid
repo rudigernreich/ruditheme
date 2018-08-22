@@ -132,7 +132,7 @@
               </span>
           </button>
         </form>
-        <button class="notify-me-button" id="BIS_trigger">Email me when available</button>
+        <button class="notify-me-button" id="BIS_trigger" {% if product.available %} style="display: none;" {% endif %}>Email me when available</button>
         <a class="size-guide-link" href="">{% include 'icon-size-guide' %} Sizeguide</a>
         <table class="size-guide-table hidden">
           <tr>
