@@ -30,7 +30,7 @@
               </a>
             </td>
             <td data-label="{{ 'customer.order.product' | t }}">
-            
+
               {% if item.image != blank %}
                 <a href="{{ item.url | within: collections.all }}">
                   {{ item | img_url: '100x100' | img_tag: item.title }}
@@ -64,7 +64,7 @@
                 {% endfor %}
               {% endif %}
 
-              
+
             </td>
             <td data-label="{{ 'cart.label.price' | t }}">
               {% if item.original_line_price != item.line_price %}
@@ -95,6 +95,12 @@
       <p>{{ 'cart.general.savings' | t }} {{ cart.total_discounts | money }}</p>
     {% endif %}
     <!--<p>{{ 'cart.general.shipping_at_checkout' | t }}</p>-->
+    <p style="float: none; text-align: right; clear: both; margin: 10px 0;">
+      <input style="float:none; vertical-align: middle;" type="checkbox" id="agree" />
+      <label style="display:inline; float:none" for="agree">
+        I agree with the <a href="/pages/terms-and-conditions">terms and conditions of sale </a> and the <a href="/pages/privacy-policy"> Privacy Policy</a>.
+      </label>
+    </p>
     <input type="submit" name="update" class="btn btn-secondary" value="{{ 'cart.general.update' | t }}">
     <input type="submit" name="checkout" class="btn btn-primary" value="{{ 'cart.general.checkout' | t }}">
   </form>

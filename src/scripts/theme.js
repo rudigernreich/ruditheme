@@ -52,3 +52,16 @@ $(document).ready(function() {
     document.documentElement.className = document.documentElement.className.replace('supports-no-cookies', 'supports-cookies');
   }
 });
+
+// Add a checkbox to cart page to agree on terms and conditions
+$(document).ready(function() {
+  $('body').on('click', '[name="checkout"], [name="goto_pp"], [name="goto_gc"]', function() {
+    if ($('#agree').is(':checked')) {
+      $(this).submit();
+    }
+    else {
+      alert("You must agree with the terms and conditions of sales and our privacy policy to check out.");
+      return false;
+    }
+  });
+});
