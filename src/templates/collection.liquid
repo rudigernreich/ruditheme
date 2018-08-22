@@ -21,15 +21,26 @@
   </li>
   <ul class="sub-nav-right hide">
   {% for tag in collection.all_tags %}
+  {% if tag contains 'filter-' %}
+      {% assign tagName = tag | remove: 'filter-' %}
       {% if current_tags contains tag %}
-            <li>{{ tag | link_to_remove_tag: tag }}</li>
+          <li class="tag--active">
+          {{ tagName | link_to_remove_tag: tag }}
+          </li>
       {% else %}
-            <li>{{ tag | link_to_tag: tag }}</li>
+          <li>
+          {{ tagName | link_to_tag: tag }}
+          </li>
       {% endif %}
+  {% endif %}
   {% endfor %}
   </ul>
 </ul>
 {% endif %}
+
+
+
+
 </nav>
 </header>
 {% paginate collection.products by 100 %}
@@ -58,7 +69,7 @@ currentLeft.onclick = function() {
      subNavLeft.classList.add('hide');
    }
   this.classList.toggle('active');
-  
+
   if(subNavRight.classList.contains('show')) {
     subNavRight.classList.remove('show');
     subNavRight.classList.add('hide');
