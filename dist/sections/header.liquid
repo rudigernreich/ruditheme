@@ -21,6 +21,7 @@
         </li>
       {% endif %}
     {% endfor %}
+    <li>&nbsp;</li>
     {% for link in linklists[section.settings.main_linklist].links %}
       {%- assign child_list_handle = link.title | handleize -%}
       {% if menus[child_list_handle].links != blank %}
@@ -46,7 +47,7 @@
 
   <ul class="site-nav">
  <form id="subscribe-form" action="https://rudigernreich.us18.list-manage.com/subscribe/post-json?u=3f4382ce9ff0dc514dc0911f1&amp;id=879e3f2550" method="get">
-    <div id="mc_embed_signup_scroll">   
+    <div id="mc_embed_signup_scroll">
 
     <div id="mce-responses" class="clear">
         <div class="response" id="mce-error-response" style="display: none;">
@@ -96,7 +97,7 @@
         <a href="/" itemprop="url" class="site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}">
           {% if section.settings.logo != blank %}
             <img src="{{ section.settings.logo | img_url: '600x600' }}"
-                 
+
                  alt="{{ section.settings.logo.alt | default: shop.name }}"
                  itemprop="logo">
           {% else %}
@@ -108,7 +109,7 @@
     {% else %}
       </div>
     {% endif %}
-    
+
     <a class="cart-link" href="/cart">{% include 'icon-cart' %}{% if cart.item_count != 0 %}<div class="cart-full"></div>{% endif %}</a>
 
     {% comment %}{% if shop.customer_accounts_enabled %}
@@ -135,7 +136,7 @@
         {% endif %}
       </ul>
     {% endif %}{% endcomment %}
-  </header>  
+  </header>
 </div>
 {% schema %}
   {
@@ -146,7 +147,7 @@
         "id": "logo",
         "label": "Logo image"
       },
-      
+
       {
         "type": "link_list",
         "id": "main_linklist",
