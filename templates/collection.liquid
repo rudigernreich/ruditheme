@@ -32,14 +32,8 @@
 {% endif %}
 </nav>
 </header>
-{% paginate collection.products by 30 %}
 
-  {% section 'product-list-disturber' %}
-
-  {% if paginate.pages > 1 %}
-    {% include 'pagination' %}
-  {% endif %}
-{% endpaginate %}
+{% section 'product-list-disturber' %}
 
 <script type="text/javascript">
 var currentLeft = document.querySelector(".current-left");
