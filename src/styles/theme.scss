@@ -358,7 +358,7 @@ input {
 			}
 			#email-input {
 				width: 80%;
-				
+
 				input {
 					width: 100%;
 					padding: 7px;
@@ -532,7 +532,7 @@ input {
       justify-content: space-between;
     }
   }
-  
+
   @include media-query($medium-up) {
 	.main-nav-right {
 		margin-left: -2px;
@@ -771,7 +771,7 @@ input {
 					object-fit: cover;
 					background: transparent;
 				}
-				
+
 			}
 			.product-item-title {
 				padding: 0 15px 0 2px;
@@ -1015,6 +1015,10 @@ input {
 		.add-to-cart-button {
 			width: 100%;
 			margin: 1em 0;
+		}
+		.notify-me-button {
+			width: 100%;
+			margin: 0 0 1em;
 		}
 		.product-quantity-label {
 			margin-top: 1em;

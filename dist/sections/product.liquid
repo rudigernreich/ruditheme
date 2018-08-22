@@ -3,7 +3,7 @@
     <a href="{{ collection.url }}">{% include 'icon-arrow-left' %}</a>
   </div>
   <div class="breadcrumbs">
-    <a href="{{ collection.url }}">{{ collection.title }}</a> / 
+    <a href="{{ collection.url }}">{{ collection.title }}</a> /
     {% if product.tags != blank %}
     {% for tag in product.tags %}
       {% capture url %}/collections/{{ collection.handle }}/{{ tag | handle }}
@@ -114,8 +114,8 @@
           </select>
           <label for="Quantity" class="product-quantity-label">{{ 'products.product.quantity' | t }}</label>
           <input type="number" class="product-quantity-input" id="Quantity" name="quantity" value="1" min="1">
-        
-          
+
+
 
           <button
             class="add-to-cart-button"
@@ -132,6 +132,7 @@
               </span>
           </button>
         </form>
+        <button class="notify-me-button" id="BIS_trigger">Email me when available</button>
         <a class="size-guide-link" href="">{% include 'icon-size-guide' %} Sizeguide</a>
         <table class="size-guide-table hidden">
           <tr>
@@ -209,14 +210,14 @@ var mySiema = new Siema({
 //if ('ontouchstart' in document.documentElement == false ) {
   document.querySelector('.siema').addEventListener('click', function(event) {
   event.pageX - this.offsetLeft > this.offsetWidth/2 ? mySiema.next() : mySiema.prev()
- }, true); 
-//} 
+ }, true);
+//}
 
 if ('ontouchstart' in document.documentElement == false ) {
 var container = document.querySelector('.siema');
  document.querySelector('.siema').addEventListener('mousemove', function(event) {
      event.pageX - this.offsetLeft > this.offsetWidth/2 ? container.style.cursor = 'e-resize' : container.style.cursor = 'w-resize'
- }, true); 
+ }, true);
 }
 
 var prev = document.querySelector('.prev');
