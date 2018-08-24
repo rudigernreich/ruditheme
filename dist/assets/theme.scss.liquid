@@ -154,7 +154,7 @@ $font-weight-bold: 700;
 $font-stack-header: 'Courier','HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $font-weight-header: $font-weight-bold;
 
-$font-stack-body: 'Courier','HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-stack-body: 'FuturaBold','HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $font-size-base: {{ settings.type_base_size }};
 
 /*============================================================================
@@ -222,7 +222,7 @@ $lineheightbase: 16px;
 $lineheightbutton: 32px;
 $letterspacingbase: 0.05rem;
 
-$rudiborder: 1px solid black;
+$rudiborder: 2px solid black;
 $rudiborderwidth: 1px;
 
 $sitemarginsmall: 20px;
@@ -1451,12 +1451,13 @@ html {
 
 body {
 	position: relative;
-    height: 100%;
-    width: 100%;
-    left: 0;
-    @include animationFromLeft(0.4s);
+	height: 100%;
+	width: 100%;
+	left: 0;
+	@include animationFromLeft(0.4s);
 	font-family: $font-stack-body;
 	font-size:  $fontsizebase;
+	font-weight: $font-weight-bold;
 	line-height: $lineheightbase;
 	letter-spacing: $letterspacingbase;
 	text-transform: uppercase;
@@ -1620,13 +1621,14 @@ input {
 }*/
 .template-collection {
 	#main-content {
-		padding-right: 19px;
+		// padding-right: 19px;
+		overflow-x: hidden;
 	}
 }
 .template-product {
 	#main-content {
-		padding-right: 21px;
-		padding-left: 21px;
+		// padding-right: 21px;
+		// padding-left: 21px;
 	}
 }
 #intro {
@@ -1814,7 +1816,7 @@ input {
 }
 #main-content {
 	margin: 0 auto 0;
-	padding: 70px 20px 0px 20px;
+	padding: 70px 0 0;
 }
 
 .related-products {
@@ -1889,15 +1891,15 @@ input {
 	-ms-user-select: none;
 	user-select: none;
 	z-index: 10;
-	width: 100%;
-	padding: 0 23px 0 20px;
+	width: calc(100% + 4px);
+	margin-left: -2px;
+	padding: 0;
 	left: 0px;
 	top: 70px;
 	position: fixed;
 	font-family: 'Courier';
 	text-transform: uppercase;
 	display: flex;
-	margin-left: 2px;
 	align-items: flex-start;
 	@include animationFromLeft(0.4s);
   ul {
@@ -1912,17 +1914,18 @@ input {
       justify-content: center;
     }
   }
-
-  @include media-query($medium-up) {
 	.main-nav-right {
 		margin-left: -2px;
 	}
+  @include media-query($medium-up) {
+		.main-nav-right {
+			margin-left: -2px;
+		}
   }
 
   .main-nav-left, .main-nav-right {
   	flex-grow: 1;
   	flex-basis: 50%;
-  	margin-left: -1px;
     background: $rudibeige;
     border: $rudiborder;
     border-bottom: 0;
@@ -1949,8 +1952,9 @@ input {
         border-bottom: $rudiborder;
         transition: background-color .075s linear;
         &:hover {
-			background-color: lighten($rudidarkbeige, 5%);
-			transition: background-color .075s linear;
+					text-decoration: underline;
+			// background-color: lighten($rudidarkbeige, 5%);
+			// transition: background-color .075s linear;
 
       	}
       }
@@ -1969,13 +1973,13 @@ input {
 }
 
 .product-list {
-	padding-top: 31px;
+	padding-top: 30px;
 	p {
 		margin: 0;
 		padding: 0;
 	}
 	.product-item {
-		text-align: left;
+		text-align: center;
 		margin: 0px;
 
 		.product-item-link {
@@ -2071,7 +2075,6 @@ input {
 				text-align: center;
 
 				.content-item-title {
-
 				}
 				.collection-title {
 					font-family: FuturaBold;
@@ -2101,15 +2104,16 @@ input {
 	margin-bottom: 30px;
 }
 
-@include media-query($medium-down) {
+@include media-query($small) {
 	.product-list {
+		width: calc(100% + 6px);
+		margin-left: 0px;
 		display: flex;
 		flex-wrap: wrap;
-		margin-left: 2px;
 		.product-item {
 			display: block;
 			flex-basis: 50%;
-			margin-left: -1px;
+			margin-left: -2px;
 			vertical-align: top;
 			position: relative;
 			.product-item-link {
@@ -2148,10 +2152,10 @@ input {
 				}
 				img {
 					position: absolute;
-					height: 115%;
+					// height: 115%;
 					width: 100%;
 					left: 0;
-					top: -9%;
+					// top: -9%;
 					object-fit: cover;
 					background: transparent;
 				}
@@ -2202,12 +2206,13 @@ input {
 	.product-list {
 		display: flex;
 		flex-wrap: wrap;
-		margin-left: 2px;
+		width: calc(100% + 10px);
 
+		margin-left: 0;
 		.product-item {
+			margin-left: -2px;
 			display: block;
 			flex-basis: 25%;
-			margin-left: -1px;
 			vertical-align: top;
 			position: relative;
 			.product-item-link {
@@ -2216,13 +2221,12 @@ input {
 				position: relative;
 				.product-item-card-1 {
 					margin-left: 0;
-					width: calc(100% + 2px);
 					padding-bottom: 150%;
 					position: relative;
 				}
 				.product-item-card-2 {
+					width: 100%;
 					margin-left: 0;
-					width: calc(100% + 2px);
 					opacity: 0;
 					padding-bottom: 150%;
 					position: absolute;
