@@ -136,8 +136,31 @@
         {% endif %}
       </ul>
     {% endif %}{% endcomment %}
+    <div class="cookie-notification" style="display:none;">
+      By continuing to use this website, you accept cookies that we use to improve your experience on this site and to provide you with services and content tailored to your interests. To learn more about cookies, including how to disable them please read our <a href="#">Privacy and Cookie Policy</a>. <a class="close-link" href="#">OK</a>
+    </div>
   </header>
 </div>
+{% javascript %}
+
+    $('.close-link').click(function(e){
+      localStorage.setItem('accepted',true);
+        $('.cookie-notification').hide();
+    });
+
+    var is_accepted = localStorage.getItem('accepted');
+
+    if(is_accepted){
+      console.log('localStorage')
+      $('.cookie-notification').hide();
+    }
+
+    if(!is_accepted){
+      console.log('no localStorage');
+      $('.cookie-notification').show();
+    }
+
+{% endjavascript %}
 {% schema %}
   {
     "name": "Header",
