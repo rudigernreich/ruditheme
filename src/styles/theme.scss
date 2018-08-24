@@ -27,27 +27,7 @@
 @import url('modules/site-header.scss');
 @import url('modules/gift-card-template.scss');
 
-$rudibeige: #F7F3F0;
-$rudidarkbeige: #dad9d5;
-$rudiblack: #000;
-$rudired: #ff0000;
-$rudigrey: #999;
-$rudigreen: #2ad675;
-$rudinude: #fbddd8;
 
-$fontsizebase: 12px;
-$lineheightbase: 16px;
-$lineheightbutton: 32px;
-$letterspacingbase: 0.05rem;
-
-$rudiborder: 1px solid black;
-
-$sitemarginsmall: 20px;
-$sitemarginmedium: 20px;
-$sitemarginlarge: 100px;
-
-$headerheight: 70px;
-$sidenavwidth: 240px;
 
 @mixin animationFromLeft($speed) {
 	-webkit-transition:  left $speed ease-in-out;
