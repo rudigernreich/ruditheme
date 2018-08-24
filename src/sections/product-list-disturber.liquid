@@ -1,24 +1,12 @@
 {% paginate collection.products by 100 %}
   <div class="product-list">
-    {% comment %}
-    {% if collection.image != blank %}
+    <!-- {% if collection.image != blank %}
     <div class="list-item content-item">
       <div class="content-item-card-1">
         {{ collection.image.src | img_url: '680x680' | img_tag: collection.image.alt }}
       </div>
-      <div class="content-item-card-2">
-        <div class="content-item-info">
-          <div class="content-item-title collection-title">{{ collection.title }}</div>
-          {% if collection.description != blank %}
-          <div class="content-item-description">
-            {{ collection.description }}
-          </div>
-          {% endif %}
-        </div>
-      </div>
     </div>
-    {% endif %}
-    {% endcomment %}
+    {% endif %} -->
 
     {% for product in collection.products %}
       {% assign productPosition = forloop.index %}
@@ -79,8 +67,8 @@
         date: 23.07.18
         author Pascal Garber <pascal@jumplink.eu
       {% endcomment %}
-      {% comment %}
-      {% if productPosition == 1 %}
+
+      <!-- {% if productPosition == 1 %}
         <div class="list-item product-item collection-header">
           <div class="product-item-link">
             <div class="product-item-card-1">
@@ -88,16 +76,9 @@
                 {{ collection.image.src | img_url: '680x680' | img_tag: collection.image.alt }}
               {% endif %}
             </div>
-            <div class="product-item-card-2">
-              <div class="text-content">
-                <div class="title">{{ collection.title }}</div>
-                <div class="text">{{ collection.description }}</div>
-              </div>
-            </div>
           </div>
         </div>
-      {% endif %}
-      {% endcomment %}
+      {% endif %} -->
 
       {% comment %}
         Display disturbers
@@ -113,10 +94,10 @@
               {% assign image = collection.image %}
             {% endif %}
 
-            {% capture content %}
+            <!-- {% capture content %}
               <div class="title">{{ collection.title }}</div>
               <div class="text">{{ collection.description }}</div>
-            {% endcapture %}
+            {% endcapture %} -->
 
 
             {% comment %} If url links to blog article get image and content of them {% endcomment %}
@@ -187,11 +168,11 @@
                 <div class="product-item-card-1">
                   {{ image.src | img_url: '680x680' | img_tag: image.alt }}
                 </div>
-                <div class="product-item-card-2">
+                <!-- <div class="product-item-card-2">
                   <div class="text-content">
                     {{ content }}
                   </div>
-                </div>
+                </div> -->
               </a>
             </div>
 
