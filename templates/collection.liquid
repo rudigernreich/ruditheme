@@ -16,7 +16,7 @@
     {% if current_tags != blank %}
       {{ current_tags }}{% include 'icon-arrow-down' %}
     {% else %}
-      Filter{% include 'icon-arrow-down' %}
+      All{% include 'icon-arrow-down' %}
     {% endif %}
   </li>
   <ul class="sub-nav-right hide">
@@ -52,7 +52,7 @@ currentLeft.onclick = function() {
      subNavLeft.classList.add('hide');
    }
   this.classList.toggle('active');
-  
+
   if(subNavRight.classList.contains('show')) {
     subNavRight.classList.remove('show');
     subNavRight.classList.add('hide');

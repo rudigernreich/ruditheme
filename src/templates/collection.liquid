@@ -16,41 +16,24 @@
     {% if current_tags != blank %}
       {{ current_tags }}{% include 'icon-arrow-down' %}
     {% else %}
-      Filter{% include 'icon-arrow-down' %}
+      All{% include 'icon-arrow-down' %}
     {% endif %}
   </li>
   <ul class="sub-nav-right hide">
   {% for tag in collection.all_tags %}
-  {% if tag contains 'filter-' %}
-      {% assign tagName = tag | remove: 'filter-' %}
       {% if current_tags contains tag %}
-          <li class="tag--active">
-          {{ tagName | link_to_remove_tag: tag }}
-          </li>
+            <li>{{ tag | link_to_remove_tag: tag }}</li>
       {% else %}
-          <li>
-          {{ tagName | link_to_tag: tag }}
-          </li>
+            <li>{{ tag | link_to_tag: tag }}</li>
       {% endif %}
-  {% endif %}
   {% endfor %}
   </ul>
 </ul>
 {% endif %}
-
-
-
-
 </nav>
 </header>
-{% paginate collection.products by 100 %}
 
-  {% section 'product-list-disturber' %}
-
-  {% if paginate.pages > 1 %}
-    {% include 'pagination' %}
-  {% endif %}
-{% endpaginate %}
+{% section 'product-list-disturber' %}
 
 <script type="text/javascript">
 var currentLeft = document.querySelector(".current-left");
