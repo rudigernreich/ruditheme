@@ -247,6 +247,11 @@ input {
 	}
 }
 .template-product {
+	@include media-query($small) {
+		.site-header {
+			border-bottom: $rudiborder;
+		}
+	}
 	#main-content {
 		// padding-right: 21px;
 		// padding-left: 21px;
@@ -274,7 +279,7 @@ input {
 		position: absolute;
 		text-align: center;
 		letter-spacing: -.08rem;
-		font-family: FuturaBold;
+		font-family: $font-stack-header;
 		font-size: 10vw;
 		line-height: .79em;
 		text-rendering: optimizeLegibility;
@@ -518,7 +523,7 @@ input {
 	left: 0px;
 	top: 70px;
 	position: fixed;
-	font-family: 'Courier';
+	font-family: $font-stack-body;
 	text-transform: uppercase;
 	display: flex;
 	align-items: flex-start;
@@ -628,7 +633,7 @@ input {
 				align-items: center;
 				justify-content: center;
 				padding: 0 30px;
-				font-family: FuturaBold;
+				font-family: $font-stack-body;
 				text-transform: none;
 				letter-spacing: 0;
 				text-align: left;
@@ -698,7 +703,7 @@ input {
 				.content-item-title {
 				}
 				.collection-title {
-					font-family: FuturaBold;
+					font-family: $font-stack-header;
 					font-size: 1.5em;
 					line-height: 1em;
 					letter-spacing: 0;
@@ -915,13 +920,14 @@ input {
 .page-header {
 	display: none;
 	text-align: center;
-	width: calc(100% - 42px);
+	width: 100%;
 	background: $rudibeige;
 	line-height: $lineheightbutton;
 	border: $rudiborder;
+	border-left: 0;
+	border-right: 0;
 	@include animationFromLeft(0.4s);
 	z-index: 10;
-	left: 21px;
 	position: fixed;
 	@include media-query($medium-up) {
 		display: inline-block;
@@ -954,7 +960,6 @@ input {
 	.product {
 		.product-images-wrapper {
 			.product-images {
-				border: $rudiborder;
 
 				.product-img {
 					width: 100%;
@@ -975,7 +980,6 @@ input {
 			.controls {
 				display: flex;
 				width: 100%;
-				margin-top: -1px;
 				.prev, .next {
 					min-width: auto;
 					padding: 0;
@@ -1001,17 +1005,6 @@ input {
 
 		.product-info {
 			padding-top: 20px;
-			@include media-query($medium-up) {
-				margin-top: 35px;
-			}
-			.product-price {
-				/*
-				font-family: FuturaBold;
-				font-size: 1.5em;
-				line-height: 2em;
-				letter-spacing: 0;
-				*/
-			}
 			select {
 			    font-size: 1.2em;
 			}
@@ -1082,7 +1075,7 @@ input {
 			.product-images-wrapper {
 				float: left;
 				width: 66%;
-
+				margin-top: 36px;
 				.product-images {
 
 					.product-img {
@@ -1093,9 +1086,9 @@ input {
 				}
 			}
 			.product-info {
-				padding-top: 15px;
+				padding: 60px 40px 0 0;
 				float: right;
-				width: 32%;
+				width: 31%;
 			}
 		}
 	}
