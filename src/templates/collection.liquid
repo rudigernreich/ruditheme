@@ -28,7 +28,7 @@
         {% assign tagName = tag | remove: 'filter-' %}
         {% if current_tags contains tag %}
             <li class="tag--active">
-            {{ tagName | link_to_remove_tag: tag }}
+            {{ 'All' | link_to_remove_tag: tag }}
             </li>
         {% else %}
             <li>
