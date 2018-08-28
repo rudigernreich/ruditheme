@@ -121,7 +121,7 @@
   Cart empty state
   {% endcomment %}
   <div class="text-align-center supports-cookies">
-    <p><a href="/">{{ 'cart.general.empty' | t }}</p>
+    <p class="empty-cart"><a href="/">{{ 'cart.general.empty' | t }}</p>
       <button href="/">Continue Shopping</button>
   </div>
 
@@ -132,6 +132,6 @@
   browser a message is displayed prompting the user to enable them.
   {% endcomment %}
   <div class="supports-no-cookies">
-    <p>{{ 'cart.general.cookies_required' | t }}</p>
+    <p class="empty-cart">{{ 'cart.general.cookies_required' | t }}</p>
   </div>
 {% endif %}
