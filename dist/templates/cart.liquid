@@ -1,8 +1,15 @@
+<header class="page-header" role="banner">
+  <div class="breadcrumbs">
+    Your Cart
+  </div>
+</header>
+
 {% if cart.item_count > 0 %}
   <!--<h1>{{ 'cart.general.title' | t }}</h1>-->
 
   <form action="/cart" method="post" novalidate>
-    <table class="responsive-table">
+  <div class="cart-wrapper">
+    <table class="responsive-table" border="0" cellpadding="0" cellspacing="0">
       <!--<thead class="small--hide">
         <tr>
           <th colspan="2">{{ 'cart.label.product' | t }}</th>
@@ -24,20 +31,15 @@
         {% endcomment %}
 
           <tr class="responsive-table-row">
-            <td>
-              <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" title="{{ 'cart.general.remove' | t }}">
-                {% include 'icon-close' %}
-              </a>
-            </td>
-            <td data-label="{{ 'customer.order.product' | t }}">
+            <th data-label="{{ 'customer.order.product' | t }}">
 
               {% if item.image != blank %}
                 <a href="{{ item.url | within: collections.all }}">
-                  {{ item | img_url: '100x100' | img_tag: item.title }}
+                  {{ item | img_url: '300x300' | img_tag: item.title }}
                 </a>
               {% endif %}
 
-            </td>
+            </th>
             <td>
               <a href="{{ item.url }}">{{ item.product.title }}</a>
 
@@ -64,9 +66,18 @@
                 {% endfor %}
               {% endif %}
 
+            <div class="break"></div>
 
-            </td>
-            <td data-label="{{ 'cart.label.price' | t }}">
+            QTY: 
+              <input type="number"
+                     name="updates[]"
+                     id="updates_{{ item.key }}"
+                     value="{{ item.quantity }}"
+                     min="0"
+                     aria-label="{{ 'cart.general.item_quantity' | t }}">
+
+            <div class="break"></div>
+
               {% if item.original_line_price != item.line_price %}
                 <span class="visually-hidden">{{ 'cart.label.discounted_price' | t }}</span>
                 {{ item.price | money }}
@@ -75,27 +86,26 @@
               {% else %}
                 {{ item.price | money }}
               {% endif %}
-            </td>
-            <td data-label="{{ 'cart.label.quantity' | t }}">
-              <input type="number"
-                     name="updates[]"
-                     id="updates_{{ item.key }}"
-                     value="{{ item.quantity }}"
-                     min="0"
-                     aria-label="{{ 'cart.general.item_quantity' | t }}">
-            </td>
-          </tr>
+          </td>
 
+
+            <td class="close">
+              <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" title="{{ 'cart.general.remove' | t }}">
+                {% include 'icon-close' %}
+              </a>
+            </td>
+            </tr>
         {% endfor %}
       </tbody>
     </table>
+    </div>
 
+  <div class="cart-info">
     <p>{{ 'cart.general.subtotal' | t }} {{ cart.total_price | money }}</p>
     {% if cart.total_discounts > 0 %}
       <p>{{ 'cart.general.savings' | t }} {{ cart.total_discounts | money }}</p>
     {% endif %}
-    <!--<p>{{ 'cart.general.shipping_at_checkout' | t }}</p>-->
-    <p style="float: none; text-align: right; clear: both; margin: 10px 0;">
+    <p style="float: none; text-align: center; clear: both; margin: 10px 0;">
       <input style="float:none; vertical-align: middle;" type="checkbox" id="agree" />
       <label style="display:inline; float:none" for="agree">
         I agree with the <a href="/pages/terms-and-conditions">terms and conditions of sale </a> and the <a href="/pages/privacy-policy"> Privacy Policy</a>.
@@ -103,6 +113,7 @@
     </p>
     <input type="submit" name="update" class="btn btn-secondary" value="{{ 'cart.general.update' | t }}">
     <input type="submit" name="checkout" class="btn btn-primary" value="{{ 'cart.general.checkout' | t }}">
+    </div>
   </form>
 {% else %}
 
