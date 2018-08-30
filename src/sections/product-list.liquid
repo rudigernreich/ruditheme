@@ -15,7 +15,6 @@
           </a>
         {% endif %}
 
-
         <div class="product-item-title">
           <p>
             <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
@@ -55,24 +54,6 @@
       </div>
 
       {% comment %}
-        Display collection header
-        date: 23.07.18
-        author Pascal Garber <pascal@jumplink.eu
-      {% endcomment %}
-
-      <!-- {% if productPosition == 1 %}
-        <div class="list-item product-item collection-header">
-          <div class="product-item-link">
-            <div class="product-item-card-1">
-              {% if collection.image %}
-                {{ collection.image.src | img_url: '680x680' | img_tag: collection.image.alt }}
-              {% endif %}
-            </div>
-          </div>
-        </div>
-      {% endif %} -->
-
-      {% comment %}
         Display disturbers
         date: 23.07.18
         author Pascal Garber <pascal@jumplink.eu
@@ -86,10 +67,12 @@
               {% assign image = collection.image %}
             {% endif %}
 
-            <!-- {% capture content %}
+            <!-- Hide Content for now
+            {% capture content %}
               <div class="title">{{ collection.title }}</div>
               <div class="text">{{ collection.description }}</div>
-            {% endcapture %} -->
+            {% endcapture %}
+          -->
 
 
             {% comment %} If url links to blog article get image and content of them {% endcomment %}
@@ -160,7 +143,7 @@
                 <div class="product-item-card-1">
                   {{ image.src | img_url: '680x680' | img_tag: image.alt }}
                 </div>
-                <!-- <div class="product-item-card-2">
+                <!-- Hide Content for now <div class="product-item-card-2">
                   <div class="text-content">
                     {{ content }}
                   </div>
@@ -191,9 +174,6 @@
       <a href="{{ paginate.next.url }}">Loading More</a>
     {% endif %}
   </div>
-  <!-- {% if paginate.pages > 1 %}
-    {% include 'pagination' %}
-  {% endif %} -->
 {% endpaginate %}
 
 <script>
