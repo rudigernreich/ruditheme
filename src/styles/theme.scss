@@ -111,7 +111,7 @@ body.open-sidebar {
     	left: $sidenavwidth !important;
     }
     .page-header {
-    	left: 261px !important;
+    	left: 240px !important;
     }
 }
 
@@ -327,6 +327,7 @@ input {
 }
 
 #sidebar {
+		background: $rudiblack;
     border-right: $rudiborder;
     position: fixed;
     width: $sidenavwidth;
@@ -340,22 +341,24 @@ input {
 	overflow-y: scroll;
     .site-nav {
 		width: 100%;
+		margin-top: 20px;
 		&:last-of-type {
 			align-self: flex-end;
 		}
+
 		li {
 			line-height: 30px;
-			border-bottom: $rudiborder;
-			text-align: center;
+			// border-bottom: $rudiborder;
+			text-align: left;
 			&:first-of-type {
-				border-top: $rudiborder;
-				margin-top: -1px;
 			}
 		}
 		a {
+			color: $rudibeige;
 			width: 100%;
 			display: block;
-			line-height: 30px;
+			line-height: $lineheightbase * 1.5;
+			padding-left: 30px;
 		}
 		#subscribe-form {
 			width: 100%;
@@ -363,7 +366,6 @@ input {
 		#subscribe-box {
 			display: flex;
 			flex-flow: row wrap;
-			border-top: $rudiborder;
 			padding: 10px;
 
 			#subscribe-result {
@@ -479,7 +481,7 @@ input {
 	width: calc(100vw - 40px);
 	.collection-list-item {
 		text-align: center;
-		margin: 5vmin auto;
+		margin: $lineheightbutton/2 auto;
 		border: $rudiborder;
 		width: 210px;
 		display: block;
@@ -1002,13 +1004,15 @@ input {
 					background: transparent;
 					color: $rudiblack;
 					border: $rudiborder;
+						border-left: 0;
 					display: inline-block;
 					&:focus {
 						outline: 0;
 					}
 				}
 				.prev {
-					border-right: 0;
+
+
 				}
 				svg {
 					height: 30px;
@@ -1120,7 +1124,7 @@ input {
 		border-spacing: 0px;
 		border-collapse: collapse;
 		text-align: left;
-		
+
 		tr.responsive-table-row {
 			border-bottom: 2px solid;
 		}
@@ -1202,7 +1206,7 @@ input {
 	.cart-info {
 		width: 100%;
 		padding: 15px;
-		margin-top: 60px; 
+		margin-top: 60px;
 		text-align: center;
 	}
 }
