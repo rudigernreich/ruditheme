@@ -1,13 +1,5 @@
-{% paginate collection.products by 100 %}
-  <div class="product-list">
-    <!-- {% if collection.image != blank %}
-    <div class="list-item content-item">
-      <div class="content-item-card-1">
-        {{ collection.image.src | img_url: '680x680' | img_tag: collection.image.alt }}
-      </div>
-    </div>
-    {% endif %} -->
-
+{% paginate collection.products by 16 %}
+  <div class="product-list endless-scroll">
     {% for product in collection.products %}
       {% assign productPosition = forloop.index %}
       <div class="list-item product-item {% for tag in product.tags %}{{ tag }}{% endfor %}">
@@ -194,10 +186,24 @@
     {% endfor %}
   </div>
 
-  {% if paginate.pages > 1 %}
+  <div class="endless-pagination">
+    {% if paginate.next %}
+      <a href="{{ paginate.next.url }}">Loading More</a>
+    {% endif %}
+  </div>
+  <!-- {% if paginate.pages > 1 %}
     {% include 'pagination' %}
-  {% endif %}
+  {% endif %} -->
 {% endpaginate %}
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var endlessScroll = new Ajaxinate({
+    container: '.endless-scroll',
+    pagination: '.endless-pagination'
+  });
+});
+</script>
 
 {% schema %}
   {
