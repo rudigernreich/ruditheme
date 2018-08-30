@@ -154,6 +154,7 @@ img {
 
 .cookie-notification {
 	position: fixed;
+	width: 100%;
 	background: $rudiblack;
 	bottom: 0;
 	color: $rudibeige;
@@ -327,9 +328,10 @@ input {
 }
 
 #sidebar {
-		background: $rudiblack;
+	background: $rudiblack;
     border-right: $rudiborder;
-    position: fixed;
+	position: fixed;
+	z-index: 9999; 
     width: $sidenavwidth;
     height: 100%;
     left: -$sidenavwidth;
@@ -433,6 +435,7 @@ input {
 		position: absolute;
 		right: 20px;
 		top: 23px;
+
 		.cart-full {
 			background: $rudigreen;
 			width: 6px;

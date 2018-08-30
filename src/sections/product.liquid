@@ -3,16 +3,9 @@
     <a href="{{ collection.url }}">{% include 'icon-arrow-left' %}</a>
   </div>
   <div class="breadcrumbs">
-    <a href="{{ collection.url }}">{{ collection.title }}</a> /
-    {% if product.tags != blank %}
-    {% for tag in product.tags %}
-      {% capture url %}/collections/{{ collection.handle }}/{{ tag | handle }}
-      {% endcapture %}
-      {{ tag | link_to: url }} /
-    {% endfor %}
-    {% endif %}
+    <a href="{{ collection.url }}">{{ collection.title }}</a> / {{ product.title }}
   </div>
-  {{ product.title }}
+  
 </header>
 <div class="product-wrapper">
   <div class="product" data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true" itemscope itemtype="http://schema.org/Product">
