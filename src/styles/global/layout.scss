@@ -1,7 +1,46 @@
 /*================ General layout styles ================*/
-body,
+
 html {
-  background-color: $color-body;
+	padding-top: 0 !important;
+	height: 100%;
+	width: 100%;
+	background: $rudibeige;
+	margin: 0;
+}
+
+body {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	@include animationFromLeft(0.4s);
+	font-family: $font-stack-body;
+	font-size:  $fontsizebase;
+	font-weight: $font-weight-bold;
+	line-height: $lineheightbase;
+	letter-spacing: $letterspacingbase;
+	text-transform: uppercase;
+	margin: 0;
+	padding: 0;
+	background: $rudibeige;
+	cursor: default;
+	-webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
+}
+@media only screen
+	  and (min-device-width: 320px)
+	  and (max-device-width: 568px)
+	  and (-webkit-min-device-pixel-ratio: 2)
+	  and (orientation: portrait) {
+		body {
+			font-size: 10px;
+			line-height: 14px;
+		}
+	}
+
+
+#main-content {
+	margin: 0 auto 0;
+	padding: 70px 0 0;
 }
 
 .page-width {
@@ -69,4 +108,74 @@ html {
 	.rte {
 		margin: 2em 0;
 	}
+}
+.cookie-notification {
+	position: fixed;
+	width: 100%;
+	background: $rudiblack;
+	bottom: 0;
+	color: $rudibeige;
+	padding: 20px;
+	text-align: center;
+	a {
+		color: inherit;
+		text-decoration: underline;
+	}
+	.close-link {
+		display: block;
+		border: 1px solid $rudibeige;
+		margin: 20px auto 0;
+		line-height: $lineheightbutton;
+		width: 215px;
+		text-decoration: none;
+	}
+}
+.page-title {
+	display: none;
+}
+.page-header {
+	display: none;
+	text-align: center;
+	width: calc(100% + 4px);
+	background: $rudibeige;
+	line-height: $lineheightbutton;
+	border: $rudiborder;
+	border-left: 0;
+	border-right: 0;
+	@include animationFromLeft(0.4s);
+	z-index: 10;
+	left: -2px;
+	position: fixed;
+	@include media-query($medium-up) {
+		display: inline-block;
+	}
+	h1 {
+		font-weight: normal;
+	}
+	.icon-arrow-left {
+      	width: 12px;
+      	height: 20px;
+      	display: inline-block;
+      	position: absolute;
+      	padding: 6px 20px 5px 10px;
+      	left: 0;
+    }
+    .breadcrumbs {
+    	display: none;
+    }
+    @include media-query($medium-up) {
+    	.breadcrumbs {
+    		display: inline-block;
+    	}
+    }
+}
+.page-headline {
+	margin-top: 60px;
+	line-height: $lineheightbutton;
+}
+
+.pagination {
+	text-align: center;
+	line-height: $lineheightbutton;
+	margin-bottom: 30px;
 }
