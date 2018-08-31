@@ -62,14 +62,14 @@
     	text-align: center;
       li {
       	cursor: pointer;
-        border-bottom: $rudiborder;
+        border-bottom: $rudiborderlight;
         transition: background-color .075s linear;
         &:hover {
 					text-decoration: underline;
-			// background-color: lighten($rudidarkbeige, 5%);
-			// transition: background-color .075s linear;
-
       	}
+				&:nth-last-of-type(1) {
+					border-bottom: $rudiborder;
+				}
       }
       .active-tag {
         	background-color: $rudigreen;

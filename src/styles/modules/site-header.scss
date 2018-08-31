@@ -17,7 +17,7 @@
 	opacity: 1;
 	left: 0;
 	@include animationFromLeft(0.4s);
-  
+
 	.site-logo {
 		margin: 0 auto;
 		background: transparent;
@@ -39,12 +39,12 @@
 
 		.cart-full {
 			background: $rudigreen;
-			width: 8px;
-			height: 8px;
+			width: 6px;
+			height: 6px;
 			border-radius: 100px;
 			position: absolute;
-			top: 8px;
-			right: 6px;
+			top: 10px;
+			right: 7px;
 		}
 	}
 	nav {

@@ -233,6 +233,7 @@ $lineheightbutton: 32px;
 $letterspacingbase: 0.05rem;
 
 $rudiborder: 2px solid black;
+$rudiborderlight: 2px solid #eee;
 $rudiborderwidth: 1px;
 
 $sitemarginsmall: 20px;
@@ -1657,7 +1658,7 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 	opacity: 1;
 	left: 0;
 	@include animationFromLeft(0.4s);
-  
+
 	.site-logo {
 		margin: 0 auto;
 		background: transparent;
@@ -1679,12 +1680,12 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 
 		.cart-full {
 			background: $rudigreen;
-			width: 8px;
-			height: 8px;
+			width: 6px;
+			height: 6px;
 			border-radius: 100px;
 			position: absolute;
-			top: 8px;
-			right: 6px;
+			top: 10px;
+			right: 7px;
 		}
 	}
 	nav {
@@ -1966,14 +1967,14 @@ body.open-sidebar {
     	text-align: center;
       li {
       	cursor: pointer;
-        border-bottom: $rudiborder;
+        border-bottom: $rudiborderlight;
         transition: background-color .075s linear;
         &:hover {
 					text-decoration: underline;
-			// background-color: lighten($rudidarkbeige, 5%);
-			// transition: background-color .075s linear;
-
       	}
+				&:nth-last-of-type(1) {
+					border-bottom: $rudiborder;
+				}
       }
       .active-tag {
         	background-color: $rudigreen;
