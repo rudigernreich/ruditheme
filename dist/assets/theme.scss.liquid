@@ -1999,7 +1999,7 @@ body.open-sidebar {
 		text-align: center;
 		margin: 0;
 		.product-item-link {
-			.product-item-card-1, .product-item-card-2 {
+			.product-item-card, .product-item-card-hover {
 				overflow: hidden;
 				display: block;
 				border: $rudiborder;
@@ -2035,7 +2035,6 @@ body.open-sidebar {
 				}
 			}
 		}
-
 		.product-item-title {
 			margin-top: .5em;
 			height: 60px;
@@ -2054,12 +2053,12 @@ body.open-sidebar {
 				cursor: pointer;
 			}
 
-			.product-item-card-1 {
+			.product-item-card {
 				&:hover {
 					background: $rudidarkbeige;
 				}
 			}
-			.product-item-card-2 {
+			.product-item-card-hover {
 				visibility: hidden;
 				display: none;
 			}
@@ -2082,13 +2081,13 @@ body.open-sidebar {
 				margin-left: 0;
 				display: block;
 				position: relative;
-				.product-item-card-1 {
+				.product-item-card {
 					margin-left: 0;
 					width: 100%;
 					padding-bottom: 180%;
 					position: relative;
 				}
-				.product-item-card-2 {
+				.product-item-card-hover {
 					margin-left: 0;
 					width: 100%;
 					opacity: 0;
@@ -2098,7 +2097,7 @@ body.open-sidebar {
 					top: 0;
 					transition: .15s opacity ease-in;
 				}
-				&:hover .product-item-card-2 {
+				&:hover .product-item-card-hover {
 					opacity: 1;
 					transition: .08s opacity ease-in;
 					transition-delay: 150ms;
@@ -2153,12 +2152,12 @@ body.open-sidebar {
 				margin-left: 0;
 				display: block;
 				position: relative;
-				.product-item-card-1 {
+				.product-item-card {
 					margin-left: 0;
 					padding-bottom: 150%;
 					position: relative;
 				}
-				.product-item-card-2 {
+				.product-item-card-hover {
 					width: 100%;
 					margin-left: 0;
 					opacity: 0;
@@ -2168,7 +2167,7 @@ body.open-sidebar {
 					top: 0;
 					transition: .15s opacity ease-in;
 				}
-				&:hover .product-item-card-2 {
+				&:hover .product-item-card-hover {
 					opacity: 1;
 					transition: .08s opacity ease-in;
 					transition-delay: 150ms;
@@ -2187,7 +2186,6 @@ body.open-sidebar {
 				padding: 0 15px 0 2px;
 			}
 		}
-
 		&:after {
 			content: "";
 			display: table;

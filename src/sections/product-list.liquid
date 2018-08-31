@@ -6,10 +6,10 @@
         {% if product.featured_image != blank %}
 
           <a class="product-item-link" href="{{ product.url | within: collection }}">
-            <div class="product-item-card-1">
+            <div class="product-item-card">
               {{ product.featured_image.src | img_url: '680x680' | img_tag: product.featured_image.alt }}
             </div>
-            <div class="product-item-card-2">
+            <div class="product-item-card-hover">
               {{ product.images[1].src | img_url: '680x680' | img_tag: product.featured_image.alt }}
             </div>
           </a>
@@ -141,10 +141,10 @@
 
             <div class="product-item product-disturber">
               <a class="product-item-link">
-                <div class="product-item-card-1">
+                <div class="product-item-card">
                   {{ image.src | img_url: '680x680' | img_tag: image.alt }}
                 </div>
-                <!-- Hide Content for now <div class="product-item-card-2">
+                <!-- Hide Content for now <div class="product-item-card-hover">
                   <div class="text-content">
                     {{ content }}
                   </div>
