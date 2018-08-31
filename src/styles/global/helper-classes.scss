@@ -1,4 +1,13 @@
 /*================ Helper Classes ================*/
+
+.hidden {
+  display: none;
+}
+.text-align-center {
+	text-align: center;
+}
+
+
 .clearfix {
   @include clearfix();
 }

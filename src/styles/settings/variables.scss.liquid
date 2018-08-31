@@ -28,6 +28,16 @@ $font-weight-header: $font-weight-bold;
 $font-stack-body: 'FuturaBold','HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $font-size-base: {{ settings.type_base_size }};
 
+@font-face {
+    font-family: 'FuturaBold';
+    src: url('Futura-Bold.woff') format('woff'),
+         url('Futura-Bold.eot') format('eot'),
+         url('Futura-Bold.ttf') format('ttf'),
+         url('Futura-Bold.svg') format('svg');
+    font-weight: bold;
+    font-style: bold;
+}
+
 /*============================================================================
   Grid Breakpoints and Class Names
     - Do not change the variable names
@@ -102,3 +112,20 @@ $sitemarginlarge: 100px;
 
 $headerheight: 70px;
 $sidenavwidth: 240px;
+
+/* Animations */
+
+@mixin animationFromLeft($speed) {
+	-webkit-transition:  left $speed ease-in-out;
+    -moz-transition:  left $speed ease-in-out;
+    -ms-transition:  left $speed ease-in-out;
+    -o-transition:  left $speed ease-in-out;
+    transition:  left $speed ease-in-out;
+}
+
+.fade-out {
+	animation:fadeOut 0.5s 1;
+	-webkit-animation:fadeOut 0.5s 1;
+	animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards;
+}
