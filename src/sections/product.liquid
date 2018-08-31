@@ -5,7 +5,7 @@
   <div class="breadcrumbs">
     <a href="{{ collection.url }}">{{ collection.title }}</a> / {{ product.title }}
   </div>
-  
+
 </header>
 <div class="product-wrapper">
   <div class="product" data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true" itemscope itemtype="http://schema.org/Product">
@@ -59,14 +59,14 @@
         <form action="/cart/add" method="post" enctype="multipart/form-data">
           <div data-price-wrapper>
             <span data-product-price class="product-price">
-              {{ current_variant.price | money }}
+              {{ current_variant.price | money_with_currency }}
             </span>
 
             {% if product.compare_at_price_max > product.price %}
               <span class="visually-hidden" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
               <s data-compare-price>
                 {% if current_variant.compare_at_price > current_variant.price %}
-                  {{ current_variant.compare_at_price | money }}
+                  {{ current_variant.compare_at_price | money_with_currency }}
                 {% endif %}
               </s>
             {% endif %}
