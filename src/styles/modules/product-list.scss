@@ -6,7 +6,7 @@
 	}
 	.product-item {
 		text-align: center;
-		margin: 0px;
+		margin: 0;
 		.product-item-link {
 			.product-item-card-1, .product-item-card-2 {
 				overflow: hidden;
@@ -74,52 +74,6 @@
 			}
 		}
 	}
-
-	.content-item {
-		margin-bottom: 30px;
-
-		.content-item-card-1, .content-item-card-2 {
-			overflow: hidden;
-			border: $rudiborder;
-		}
-
-
-		.content-item-card-2 {
-			.content-item-info {
-				position: absolute;
-				display: flex;
-				flex-direction: column;
-				align-content: center;
-				justify-content: center;
-				height: 100%;
-				width: 100%;
-				left: 0;
-				margin: 0;
-				padding: 0 20px;
-				text-align: center;
-
-				.content-item-title {
-				}
-				.collection-title {
-					font-family: $font-stack-header;
-					font-size: 1.5em;
-					line-height: 1em;
-					letter-spacing: 0;
-				}
-				.content-item-description {
-					margin-top: 1em;
-				}
-			}
-		}
-		img {
-			position: absolute;
-			height: 100%;
-			width: 100%;
-			left: 0;
-			object-fit: cover;
-			background: transparent;
-		}
-	}
 }
 @include media-query($small) {
 	.product-list {
@@ -182,34 +136,6 @@
 				padding: 0 15px 0 2px;
 			}
 		}
-		.content-item {
-			flex-basis: 50%;
-			margin-left: -1px;
-			vertical-align: top;
-			position: relative;
-			display: block;
-
-			.content-item-card-1 {
-				display: block;
-				margin-left: 0;
-				width: 100%;
-				padding-bottom: 180%;
-			}
-			.content-item-card-2 {
-				display: block;
-				margin-left: 0;
-				width: 100%;
-				top: 0;
-				padding-bottom: 180%;
-				position: absolute;
-				opacity: 0;
-				transition: .1s opacity ease-in;
-				&:hover {
-					opacity: 1;
-					transition: .1s opacity ease-in;
-				}
-			}
-		}
 
 		&:after {
 			content: "";
@@ -268,35 +194,6 @@
 			}
 			.product-item-title {
 				padding: 0 15px 0 2px;
-			}
-		}
-		.content-item {
-			flex-basis: 25%;
-			margin-left: 2px;
-			vertical-align: top;
-			position: relative;
-			display: block;
-
-			.content-item-card-1 {
-				display: block;
-				margin-left: 0;
-				width: calc(100% + 2px);
-				padding-bottom: 150%;
-				margin-left: -1px;
-			}
-			.content-item-card-2 {
-				display: block;
-				margin-left: -1px;
-				width: calc(100% + 2px);
-				top: 0;
-				padding-bottom: 150%;
-				position: absolute;
-				opacity: 0;
-				transition: .1s opacity ease-in;
-				&:hover {
-					opacity: 1;
-					transition: .1s opacity ease-in;
-				}
 			}
 		}
 

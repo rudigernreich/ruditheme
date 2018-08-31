@@ -116,16 +116,16 @@ $sidenavwidth: 240px;
 /* Animations */
 
 @mixin animationFromLeft($speed) {
-	-webkit-transition:  left $speed ease-in-out;
-    -moz-transition:  left $speed ease-in-out;
-    -ms-transition:  left $speed ease-in-out;
-    -o-transition:  left $speed ease-in-out;
-    transition:  left $speed ease-in-out;
+  -webkit-transition:  left $speed ease-in-out;
+  -moz-transition:  left $speed ease-in-out;
+  -ms-transition:  left $speed ease-in-out;
+  -o-transition:  left $speed ease-in-out;
+  transition:  left $speed ease-in-out;
 }
-
-.fade-out {
-	animation:fadeOut 0.5s 1;
-	-webkit-animation:fadeOut 0.5s 1;
-	animation-fill-mode: forwards;
-	-webkit-animation-fill-mode: forwards;
+@mixin fadeIn($speed) {
+  -webkit-transition:  opacity $speed ease-in-out;
+  -moz-transition:  opacity $speed ease-in-out;
+  -ms-transition:  opacity $speed ease-in-out;
+  -o-transition:  opacity $speed ease-in-out;
+  transition:  opacity $speed ease-in-out;
 }

@@ -2,7 +2,7 @@
   <div class="product-list endless-scroll">
     {% for product in collection.products %}
       {% assign productPosition = forloop.index %}
-      <div class="list-item product-item {% for tag in product.tags %}{{ tag }}{% endfor %}">
+      <div class="product-item {% for tag in product.tags %}{{ tag }}{% endfor %}">
         {% if product.featured_image != blank %}
 
           <a class="product-item-link" href="{{ product.url | within: collection }}">
@@ -139,7 +139,7 @@
               {% assign content = disturbers.settings.content %}
             {% endif %}
 
-            <div class="list-item product-item product-disturber">
+            <div class="product-item product-disturber">
               <a class="product-item-link">
                 <div class="product-item-card-1">
                   {{ image.src | img_url: '680x680' | img_tag: image.alt }}
