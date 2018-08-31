@@ -1514,43 +1514,21 @@ symbol {
     - Focus, error, and disabled states are set to be extended
 ==============================================================================*/
 
-button, .btn {
-	background: black;
-	opacity: 1;
-	color: white;
-	padding: 0 3em;
-	min-width: 210px;
-	border: $rudiborder;
-	line-height: $lineheightbutton;
-	text-transform: uppercase;
-	font-family: inherit;
-}
-select {
-	font-family: inherit;
-	margin-top: .5em;
-	border: $rudiborder;
-	width: 100%;
-	line-height: $lineheightbutton;
-	padding-left: 10px;
-	text-transform: uppercase;
-}
-input {
-	background: transparent;
-	border: $rudiborder;
-	color: black;
-	padding: 0 .75em;
-	font-family: $font-stack-body;
-	text-transform: uppercase;
-	line-height: $lineheightbutton;
-}
-
-
 input,
 textarea,
 select {
+	background: transparent;
+	font-family: $font-stack-body;
+	border: $rudiborder;
+	line-height: $lineheightbutton;
+	color: $rudiblack;
+	text-transform: uppercase;
+	font-size: 16px;
   border-radius: 0;
+  width: 100%;
   max-width: 100%;
   text-align: center;
+	padding: 0 .75em;
 
   &:focus {
     // You should add some focus styles
@@ -1567,6 +1545,19 @@ textarea {
   min-height: 100px;
 }
 
+button, .btn {
+	background: black;
+	opacity: 1;
+	color: white;
+	padding: 0 3em;
+	min-width: 210px;
+	border: $rudiborder;
+	line-height: $lineheightbutton;
+	font-family: inherit;
+	font-size: 16px;
+	text-transform: uppercase;
+}
+
 /*================ Custom select style ================*/
 select {
   @include prefix(appearance, none, webkit moz spec);
@@ -1577,6 +1568,7 @@ select {
     position: right 10px center;
     color: transparent;
   }
+	padding-left: 10px;
   padding-right: 15px;
   text-indent: 0.01px;
   text-overflow: '';
@@ -2356,15 +2348,7 @@ body.open-sidebar {
 		}
 
 		.product-info {
-			padding-top: 20px;
-			select {
-			    font-size: 1.2em;
-			}
-		}
-		.product-title {
-			font-size: $fontsizebase;
-			line-height: 1em;
-			font-weight: normal;
+			padding: 20px;
 		}
 		.add-to-cart-button {
 			width: 100%;

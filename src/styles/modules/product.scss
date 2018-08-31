@@ -2,7 +2,6 @@
 	.product {
 		.product-images-wrapper {
 			.product-images {
-
 				.product-img {
 					width: 100%;
 					padding-bottom: 134%;
@@ -48,15 +47,7 @@
 		}
 
 		.product-info {
-			padding-top: 20px;
-			select {
-			    font-size: 1.2em;
-			}
-		}
-		.product-title {
-			font-size: $fontsizebase;
-			line-height: 1em;
-			font-weight: normal;
+			padding: 20px;
 		}
 		.add-to-cart-button {
 			width: 100%;
