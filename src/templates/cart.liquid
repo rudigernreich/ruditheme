@@ -68,7 +68,7 @@
 
             <div class="break"></div>
 
-            QTY: 
+            QTY:
               <input type="number"
                      name="updates[]"
                      id="updates_{{ item.key }}"
@@ -80,11 +80,11 @@
 
               {% if item.original_line_price != item.line_price %}
                 <span class="visually-hidden">{{ 'cart.label.discounted_price' | t }}</span>
-                {{ item.price | money }}
+                {{ item.price | money_with_currency }}
                 <span class="visually-hidden">{{ 'cart.label.original_price' | t }}</span>
-                <s>{{ item.original_price | money }}</s>
+                <s>{{ item.original_price | money_with_currency }}</s>
               {% else %}
-                {{ item.price | money }}
+                {{ item.price | money_with_currency }}
               {% endif %}
           </td>
 
@@ -101,9 +101,9 @@
     </div>
 
   <div class="cart-info">
-    <p>{{ 'cart.general.subtotal' | t }} {{ cart.total_price | money }}</p>
+    <p>{{ 'cart.general.subtotal' | t }} {{ cart.total_price | money_with_currency }}</p>
     {% if cart.total_discounts > 0 %}
-      <p>{{ 'cart.general.savings' | t }} {{ cart.total_discounts | money }}</p>
+      <p>{{ 'cart.general.savings' | t }} {{ cart.total_discounts | money_with_currency }}</p>
     {% endif %}
     <p style="float: none; text-align: center; clear: both; margin: 10px 0;">
       <input style="float:none; vertical-align: middle;" type="checkbox" id="agree" />
