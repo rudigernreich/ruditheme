@@ -68,7 +68,7 @@
     </ul>
   </ul>
 
-  <ul class="site-nav">
+<ul class="site-nav">
  <form id="subscribe-form" action="https://rudigernreich.us18.list-manage.com/subscribe/post-json?u=3f4382ce9ff0dc514dc0911f1&amp;id=879e3f2550" method="get">
     <div id="mc_embed_signup_scroll">
 
@@ -164,6 +164,11 @@
     </div>
   </header>
 </div>
+
+{% if section.settings.intro_enable == true %}
+  {% include 'intro' %}
+{% endif %}
+
 {% javascript %}
 
     $('.close-link').click(function(e){
@@ -211,6 +216,26 @@
         "id": "social_linklist",
         "label": "Social Menu",
         "default": "main-menu"
+      },
+      {
+        "type": "checkbox",
+        "id": "intro_enable",
+        "label": "Enable Intro"
+      },
+      {
+        "type": "image_picker",
+        "id": "intro_img",
+        "label": "Intro Image"
+      },
+      {
+        "type": "text",
+        "id": "intro_video",
+        "label": "Video URL"
+      },
+      {
+        "type": "textarea",
+        "id": "headline_text",
+        "label": "Headline Text"
       }
     ]
   }

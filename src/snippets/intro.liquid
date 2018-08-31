@@ -1,0 +1,43 @@
+<div id="intro" style="display: none;">
+  <div class="intro-typo">
+    {% if section.settings.headline_text != blank %}
+      {{ section.settings.headline_text | newline_to_br }}
+    {% endif %}
+  </div>
+  <div class="intro-overlay">&nsbp;</div>
+  {% if section.settings.intro_video != blank %}
+    <video autoplay loop muted>
+      <source src="{{ section.settings.intro_video }}" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  {% else %}
+    <img src="{{ section.settings.intro_img | img_url: '1500x1500' }}">
+  {% endif %}
+</div>
+<script type="text/javascript">
+  var intro = document.getElementById("intro");
+  var header = document.getElementById("site-header");
+  var collectionList = document.querySelector(".collection-list");
+
+  var firstvisit = sessionStorage.getItem('firstvisit');
+  if (firstvisit === null) {
+      console.log("intro wird gezeigt");
+      intro.style.display = "block";
+      header.style.display = "none";
+      collectionList.style.display = "none";
+
+      intro.onclick = function() {
+        firstvisit = false;
+        console.log("intro geklickt");
+        intro.style.opacity = "0";
+        setTimeout(() => this.style.display = "none", 100);
+        header.style.display = "block";
+        collectionList.style.display = "flex";
+      }
+  } else {
+      firstvisit = JSON.parse(firstvisit);
+      console.log("intro wird versteckt");
+  }
+  firstvisit =! firstvisit;
+  sessionStorage.setItem("firstvisit", firstvisit);
+</script>
