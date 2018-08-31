@@ -239,6 +239,15 @@ $sidenavwidth: 240px;
 /* Document
    ========================================================================== */
 
+ /* Hide Shopify Admin Bar */
+ #admin_bar_iframe {
+ 	display: none;
+ 	height: 0 !important;
+ }
+ #admin-bar-iframe {
+ 	display: none !important;
+ }
+
 /**
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in
@@ -1358,16 +1367,6 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 
 
 /*================ MODULES ================*/
-/*================ Site Header ================*/
-.site-logo {
-  display: block;
-
-  img {
-    display: block;
-    width: 100%;
-  }
-}
-
 /*================ Giftcard Template ================*/
 .giftcard-qr {
   img {
@@ -1430,15 +1429,6 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
          url('Futura-Bold.svg') format('svg');
     font-weight: bold;
     font-style: bold;
-}
-
-/* Hide Shopify Admin Bar */
-#admin_bar_iframe {
-	display: none;
-	height: 0 !important;
-}
-#admin-bar-iframe {
-	display: none !important;
 }
 
 html {
@@ -1612,14 +1602,7 @@ input {
 		border: $rudiborder;
 	}
 }
-/*.template-index {
-	#site-header {
-		display: none;
-	}
-	.collection-list {
-		display: none;
-	}
-}*/
+
 .template-collection {
 	#main-content {
 		// padding-right: 19px;
@@ -1781,6 +1764,14 @@ input {
 			}
 		}
     }
+}
+.site-logo {
+  display: block;
+
+  img {
+    display: block;
+    width: 100%;
+  }
 }
 .site-header {
 	position: fixed;
@@ -2054,7 +2045,7 @@ input {
 		}
 	}
 
-	.product-distruber {
+	.product-disturber {
 		margin-bottom: 30px;
 
 		.product-item-link {

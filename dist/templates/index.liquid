@@ -3,14 +3,14 @@
     var intro = document.getElementById("intro");
     var header = document.getElementById("site-header");
     var collectionList = document.querySelector(".collection-list");
-    
+
     var firstvisit = sessionStorage.getItem('firstvisit');
     if (firstvisit === null) {
         console.log("intro wird gezeigt");
         intro.style.display = "block";
         header.style.display = "none";
         collectionList.style.display = "none";
-        
+
         intro.onclick = function() {
           firstvisit = false;
           console.log("intro geklickt");

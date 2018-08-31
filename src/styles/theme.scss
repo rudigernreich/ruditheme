@@ -24,7 +24,6 @@
 @import url('global/blank-states.scss');
 
 /*================ MODULES ================*/
-@import url('modules/site-header.scss');
 @import url('modules/gift-card-template.scss');
 
 
@@ -51,15 +50,6 @@
          url('Futura-Bold.svg') format('svg');
     font-weight: bold;
     font-style: bold;
-}
-
-/* Hide Shopify Admin Bar */
-#admin_bar_iframe {
-	display: none;
-	height: 0 !important;
-}
-#admin-bar-iframe {
-	display: none !important;
 }
 
 html {
@@ -233,14 +223,7 @@ input {
 		border: $rudiborder;
 	}
 }
-/*.template-index {
-	#site-header {
-		display: none;
-	}
-	.collection-list {
-		display: none;
-	}
-}*/
+
 .template-collection {
 	#main-content {
 		// padding-right: 19px;
@@ -402,6 +385,14 @@ input {
 			}
 		}
     }
+}
+.site-logo {
+  display: block;
+
+  img {
+    display: block;
+    width: 100%;
+  }
 }
 .site-header {
 	position: fixed;
