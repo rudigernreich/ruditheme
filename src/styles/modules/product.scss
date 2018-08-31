@@ -1,0 +1,139 @@
+.product-wrapper {
+	.product {
+		.product-images-wrapper {
+			.product-images {
+
+				.product-img {
+					width: 100%;
+					padding-bottom: 134%;
+					overflow: hidden;
+					display: block;
+					position: relative;
+					img {
+						position: absolute;
+						height: 100%;
+						width: 100%;
+						left: 0;
+						object-fit: cover;
+						background: transparent;
+					}
+				}
+			}
+			.controls {
+				display: flex;
+				width: 100%;
+				.prev, .next {
+					min-width: auto;
+					padding: 0;
+					flex-grow: 1;
+					flex-basis: 50%;
+					background: transparent;
+					color: $rudiblack;
+					border: $rudiborder;
+						border-left: 0;
+					display: inline-block;
+					&:focus {
+						outline: 0;
+					}
+				}
+				.prev {
+
+
+				}
+				svg {
+					height: 30px;
+					width: 6px;
+				}
+			}
+		}
+
+		.product-info {
+			padding-top: 20px;
+			select {
+			    font-size: 1.2em;
+			}
+		}
+		.product-title {
+			font-size: $fontsizebase;
+			line-height: 1em;
+			font-weight: normal;
+		}
+		.add-to-cart-button {
+			width: 100%;
+			margin: 1em 0;
+		}
+		.notify-me-button {
+			width: 100%;
+			margin: 0 0 1em;
+		}
+		.product-quantity-label {
+			margin-top: 1em;
+			display: block;
+		}
+		.product-quantity-input {
+			width: 100%;
+			display: block;
+			margin-top: .5em;
+			-webkit-box-shadow: none;
+			-moz-box-shadow: none;
+			box-shadow: none;
+		}
+		.product-single-option {
+			margin-top: 1em;
+		}
+		.size-guide-table {
+			svg {
+				width: 8px;
+			}
+		}
+		table {
+			padding: 0;
+			margin: 13px 0 0 0;
+			border-spacing: 0;
+    		border-collapse: separate;
+    		width: 100%;
+    		border-bottom: $rudiborder;
+    		border-right: $rudiborder;
+			tr {
+				padding: 0;
+				margin: 0;
+			}
+			td {
+				line-height: 30px;
+				text-align: center;
+				margin: 0;
+				padding: 0;
+				border: $rudiborder;
+				border-bottom: 0;
+				border-right: 0;
+			}
+		}
+	}
+}
+
+@include media-query($medium-up) {
+	.product-wrapper {
+		width: 100%;
+		.product {
+			/*margin-bottom: 60px;*/
+			.product-images-wrapper {
+				float: left;
+				width: 66%;
+				margin-top: 36px;
+				.product-images {
+
+					.product-img {
+						img {
+							border-right: $rudiborder;
+						}
+					}
+				}
+			}
+			.product-info {
+				padding: 60px 40px 0 0;
+				float: right;
+				width: 31%;
+			}
+		}
+	}
+}
