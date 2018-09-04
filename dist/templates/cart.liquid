@@ -9,7 +9,7 @@
 
   <form action="/cart" method="post" novalidate>
   <div class="cart-wrapper">
-    <table class="responsive-table" border="0" cellpadding="0" cellspacing="0">
+    <div class="cart-content">
       <!--<thead class="small--hide">
         <tr>
           <th colspan="2">{{ 'cart.label.product' | t }}</th>
@@ -18,7 +18,7 @@
           <th>{{ 'cart.label.total' | t }}</th>
         </tr>
       </thead>-->
-      <tbody>
+      <div>
 
         {% for item in cart.items %}
 
@@ -30,8 +30,8 @@
         helpers used for responsive-table labels
         {% endcomment %}
 
-          <tr class="responsive-table-row">
-            <th data-label="{{ 'customer.order.product' | t }}">
+          <div class="cart-row">
+            <div class="cart-product-item" data-label="{{ 'customer.order.product' | t }}">
 
               {% if item.image != blank %}
                 <a href="{{ item.url | within: collections.all }}">
@@ -39,8 +39,8 @@
                 </a>
               {% endif %}
 
-            </th>
-            <td>
+            </div>
+            <div class="cart-product-info">
               <a href="{{ item.url }}">{{ item.product.title }}</a>
 
               {% unless item.product.has_only_default_variant %}
@@ -68,7 +68,7 @@
 
             <div class="break"></div>
 
-            QTY:
+            QTY: &nbsp;
               <input type="number"
                      name="updates[]"
                      id="updates_{{ item.key }}"
@@ -80,39 +80,39 @@
 
               {% if item.original_line_price != item.line_price %}
                 <span class="visually-hidden">{{ 'cart.label.discounted_price' | t }}</span>
-                {{ item.price | money_with_currency }}
+                {{ item.price | money }}
                 <span class="visually-hidden">{{ 'cart.label.original_price' | t }}</span>
-                <s>{{ item.original_price | money_with_currency }}</s>
+                <s>{{ item.original_price | money }}</s>
               {% else %}
-                {{ item.price | money_with_currency }}
+                {{ item.price | money }}
               {% endif %}
-          </td>
+          </div>
 
 
-            <td class="close">
+            <div class="close">
               <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" title="{{ 'cart.general.remove' | t }}">
                 {% include 'icon-close' %}
               </a>
-            </td>
-            </tr>
+            </div>
+            </div>
         {% endfor %}
-      </tbody>
-    </table>
+      </div>
     </div>
 
   <div class="cart-info">
-    <p>{{ 'cart.general.subtotal' | t }} {{ cart.total_price | money_with_currency }}</p>
+    <p>{{ 'cart.general.subtotal' | t }} {{ cart.total_price | money }}</p>
     {% if cart.total_discounts > 0 %}
-      <p>{{ 'cart.general.savings' | t }} {{ cart.total_discounts | money_with_currency }}</p>
+      <p>{{ 'cart.general.savings' | t }} {{ cart.total_discounts | money }}</p>
     {% endif %}
-    <p style="float: none; text-align: center; clear: both; margin: 10px 0;">
-      <input style="float:none; vertical-align: middle;" type="checkbox" id="agree" />
-      <label style="display:inline; float:none" for="agree">
+    <p class="checkout-info clearfix">
+      <input class="checkbox" type="checkbox" id="agree" />
+      <label class="agree for="agree">
         I agree with the <a href="/pages/terms-and-conditions">terms and conditions of sale </a> and the <a href="/pages/privacy-policy"> Privacy Policy</a>.
       </label>
     </p>
     <input type="submit" name="update" class="btn btn-secondary" value="{{ 'cart.general.update' | t }}">
     <input type="submit" name="checkout" class="btn btn-primary" value="{{ 'cart.general.checkout' | t }}">
+    </div>
     </div>
   </form>
 {% else %}
