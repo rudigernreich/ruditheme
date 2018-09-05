@@ -1235,6 +1235,13 @@ body {
 		margin-top: calc(60px + 1em);
 	}
 }
+@include media-query($medium-up) {
+	.template-page {
+		.rte {
+			margin-bottom: calc(24px + 1em);
+		}
+	}
+}
 
 @include media-query($medium-down) {
 	.template-page {
@@ -1783,6 +1790,7 @@ body.open-sidebar {
 			padding: 30px;
 
 			#subscribe-result {
+				width: 100%;
 				padding-bottom: 5px;
 				margin: 0 auto;
 				text-align: center;
