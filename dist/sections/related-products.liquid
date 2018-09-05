@@ -4,6 +4,7 @@
   </header>
       
   <div class="product-list">
+  
   {% assign number_of_related_products_to_show = 1 %} 
       {% assign current_product = product %} {% assign current_product_tags = product.tags %} 
       {% assign found_first_match = false %} {% assign found_second_match = false %} 
@@ -28,6 +29,8 @@
 
           {% endif %}
       {% if product.tags contains first_match or product.tags contains second_match %} 
+
+      
       {% include 'product-grid-item' with collection.handle %} 
       {% endif %} 
       {% endif %} 

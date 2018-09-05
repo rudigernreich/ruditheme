@@ -106,9 +106,31 @@ body {
 		width: 50%;
 	}
 	.rte {
-		margin: 2em 0;
+		margin-top: calc(60px + 1em);
 	}
 }
+
+@include media-query($medium-down) {
+	.template-page {
+		#main-content {
+			width: 60%;
+		}
+	}
+}
+
+@include media-query($small) {
+	.template-page {
+		#main-content {
+			width: 100%;
+			padding: 20px;
+		}
+		.site-header {
+			border-bottom: $rudiborder;
+		}
+	}
+
+}
+
 .cookie-notification {
 	position: fixed;
 	width: 100%;

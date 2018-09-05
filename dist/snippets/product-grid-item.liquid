@@ -1,11 +1,8 @@
 <div class="list-item product-item">
   {% if product.featured_image != blank %}
     <a class="product-item-link" href="{{ product.url | within: collection }}">
-      <div class="product-item-card-1">
+      <div class="product-item-card">
         {{ product.featured_image.src | img_url: '680x680' | img_tag: product.featured_image.alt }}
-      </div>
-      <div class="product-item-card-2">
-        {{ product.images[1].src | img_url: '680x680' | img_tag: product.featured_image.alt }}
       </div>
     </a>
   {% endif %}
@@ -21,7 +18,7 @@
           {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
         {% else %}
           {{ 'products.product.on_sale' | t }}
-          {{ product.price | money }}
+          {{ product.price | money_with_currency }}
         {% endif %}
 
       {% else %}
@@ -30,14 +27,14 @@
           {%- assign price = product.price | money -%}
           {{ 'products.product.from_text_html' | t: price: price }}
         {% else %}
-          {{ product.price | money }}
+          {{ product.price | money_with_currency }}
         {% endif %}
 
       {% endif %}
 
       {% if product.compare_at_price > product.price %}
         <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
-        <s>{{ product.compare_at_price | money }}</s>
+        <s>{{ product.compare_at_price | money_with_currency }}</s>
       {% endif %}
 
       {% unless product.available %}
