@@ -80,11 +80,11 @@
 
               {% if item.original_line_price != item.line_price %}
                 <span class="visually-hidden">{{ 'cart.label.discounted_price' | t }}</span>
-                {{ item.price | money }}
+                {{ item.price | money_with_currency }}
                 <span class="visually-hidden">{{ 'cart.label.original_price' | t }}</span>
-                <s>{{ item.original_price | money }}</s>
+                <s>{{ item.original_price | money_with_currency }}</s>
               {% else %}
-                {{ item.price | money }}
+                {{ item.price | money_with_currency }}
               {% endif %}
           </div>
 
@@ -100,9 +100,9 @@
     </div>
 
   <div class="cart-info">
-    <p>{{ 'cart.general.subtotal' | t }} {{ cart.total_price | money }}</p>
+    <p>{{ 'cart.general.subtotal' | t }} {{ cart.total_price | | money_with_currency }}</p>
     {% if cart.total_discounts > 0 %}
-      <p>{{ 'cart.general.savings' | t }} {{ cart.total_discounts | money }}</p>
+      <p>{{ 'cart.general.savings' | t }} {{ cart.total_discounts | money_with_currency }}</p>
     {% endif %}
     <p class="checkout-info clearfix">
       <input class="checkbox" type="checkbox" id="agree" />
