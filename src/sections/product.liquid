@@ -32,21 +32,11 @@
       {% if product.images.size > 1 %}
         <div class="product-images-wrapper">
           <div class="product-images siema">
-                  <div class="product-img">
-                   <img src="{{ product.images[2].src | img_url: '' }}" alt="{{ image.alt | escape }}">
-                  </div>
               {% for image in product.images %}
-                {% if forloop.index == 3 or forloop.index == 4 %}
-                  {% continue %}
-                {% else %}
                   <div class="product-img">
                     <img src="{{ image.src | img_url: '' }}" alt="{{ image.alt | escape }}">
                   </div>
-                   {% endif %}
               {% endfor %}
-                  <div class="product-img">
-                   <img src="{{ product.images[3].src | img_url: '' }}" alt="{{ image.alt | escape }}">
-                  </div>
           </div>
           <div class="controls">
             <button class="prev">{% include 'icon-arrow-left' %}</button>
