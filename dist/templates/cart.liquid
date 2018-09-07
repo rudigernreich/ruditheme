@@ -120,9 +120,11 @@
   {% comment %}
   Cart empty state
   {% endcomment %}
-  <div class="text-align-center supports-cookies">
-    <p class="empty-cart"><a href="/">{{ 'cart.general.empty' | t }}</p>
-      <button href="/">Continue Shopping</button>
+  <div class="cart-align-wrapper">
+    <div class="text-align-center supports-cookies">
+      <p class="empty-cart"><a href="/">{{ 'cart.general.empty' | t }}</p>
+        <button href="/">Continue Shopping</button>
+    </div>
   </div>
 
   {% comment %}
@@ -131,7 +133,10 @@
   Browser cookies are required to use the cart. If cookies aren't enabled in the
   browser a message is displayed prompting the user to enable them.
   {% endcomment %}
-  <div class="supports-no-cookies">
-    <p class="empty-cart">{{ 'cart.general.cookies_required' | t }}</p>
+
+  <div class="cart-align-wrapper">
+    <div class="supports-no-cookies">
+      <p class="empty-cart">{{ 'cart.general.cookies_required' | t }}</p>
+    </div>
   </div>
 {% endif %}
