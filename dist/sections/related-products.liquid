@@ -5,14 +5,15 @@
       
   <div class="product-list">
   
-  {% assign number_of_related_products_to_show = 1 %} 
+  {% assign number_of_related_products_to_show = 2 %} 
       {% assign current_product = product %} {% assign current_product_tags = product.tags %} 
       {% assign found_first_match = false %} {% assign found_second_match = false %} 
       {% assign first_related_product = true %} 
       {% paginate collections.all.products by 1000 %} 
+      {% assign counter = 0 %}
       {% for product in collections.all.products %} 
       {% unless product.handle == current_product.handle %}
-      {% for tag in product.tags limit:4 %} 
+      {% for tag in product.tags %} 
       {% if current_product_tags contains tag %} 
       {% if found_first_match == false %} 
       {% assign found_first_match = true %} 
@@ -28,10 +29,14 @@
       {% assign first_related_product = false %}
 
           {% endif %}
+      
       {% if product.tags contains first_match or product.tags contains second_match %} 
 
-      
+      {% if counter < 4 %}
       {% include 'product-grid-item' with collection.handle %} 
+      {% assign counter = counter | plus: 1 %}
+
+      {% endif %} 
       {% endif %} 
       {% endif %} 
       {% endunless %} 
