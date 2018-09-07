@@ -2,7 +2,15 @@
   {% if product.featured_image != blank %}
     <a class="product-item-link" href="{{ product.url | within: collection }}">
       <div class="product-item-card">
-        {{ product.featured_image.src | img_url: '680x680' | img_tag: product.featured_image.alt }}
+        {% assign img_url = product.featured_image.src | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %} 
+        <img id="{{ img_id }}"
+            class="lazyload"
+            src="{{ product.featured_image.src | img_url: '600x600' }}"
+            data-src="{{ img_url }}"
+            data-widths="[180, 360, 540, 720, 800, 900, 1080, 1296, 1512, 1728, 2048]"
+            data-aspectratio="{{ product.featured_image.src.aspect_ratio }}"
+            data-sizes="auto"
+            alt="{{ product.featured_image.src.alt | escape }}">
       </div>
     </a>
   {% endif %}

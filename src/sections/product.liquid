@@ -24,7 +24,18 @@
       {% if featured_image != blank %}
         <div class="product-images-wrapper">
           <div class="product-images">
-            <img src="{{ featured_image | img_url: '' }}" alt="{{ featured_image.alt | escape }}" data-product-featured-image>
+              <div class="product-img">
+                  {% assign img_url = featured_image.src | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+                  <img id="{{ img_id }}"
+                      class="lazyload"
+                      src="{{ featured_image.src | img_url: '600x600' }}"
+                      data-src="{{ img_url }}"
+                      data-widths="[180, 360, 540, 720, 800, 900, 1080, 1296, 1512, 1728, 2048]"
+                      data-aspectratio="{{ featured_image.src.aspect_ratio }}"
+                      data-sizes="auto"
+                      alt="{{ featured_image.src.alt | escape }}"
+                      data-product-featured-image>
+              </div>
           </div>
         </div>
       {% endif %}
@@ -34,7 +45,15 @@
           <div class="product-images siema">
               {% for image in product.images %}
                   <div class="product-img">
-                    <img src="{{ image.src | img_url: '' }}" alt="{{ image.alt | escape }}">
+                     {% assign img_url = image.src | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+                      <img id="{{ img_id }}"
+                          class="lazyload"
+                          src="{{ image.src | img_url: '600x600' }}"
+                          data-src="{{ img_url }}"
+                          data-widths="[180, 360, 540, 720, 800, 900, 1080, 1296, 1512, 1728, 2048]"
+                          data-aspectratio="{{ image.src.aspect_ratio }}"
+                          data-sizes="auto"
+                          alt="{{ image.src.alt | escape }}">
                   </div>
               {% endfor %}
           </div>
