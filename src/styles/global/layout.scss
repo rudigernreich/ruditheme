@@ -131,6 +131,9 @@ body {
 		width: 50%;
 	}
 }
+.template-page .rte {
+	text-transform: none;
+}
 @include media-query($medium-up) {
 	.rte {
 		margin-top: 70px;

@@ -303,6 +303,16 @@ $sidenavwidth: 240px;
  	font-size: $fontsizebase;
  	font-family: $font-stack-header;
  }
+ h3 {
+  font-size: 12px;
+  border: 2px solid;
+  padding: 5px;
+  text-transform: uppercase;
+ }
+ h4 {
+  font-size: 12px;
+  text-transform: uppercase;
+ }
  img {
  	-webkit-user-select: none;
  	-khtml-user-select: none;
@@ -1256,6 +1266,9 @@ body {
 	#main-content {
 		width: 50%;
 	}
+}
+.template-page .rte {
+	text-transform: none;
 }
 @include media-query($medium-up) {
 	.rte {
