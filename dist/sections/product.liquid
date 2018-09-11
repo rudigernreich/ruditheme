@@ -3,10 +3,10 @@
     <a href="{{ collection.url }}">{% include 'icon-arrow-left' %}</a>
   </div>
   <div class="breadcrumbs">
-    <a href="{{ collection.url }}">{{ collection.title }}</a> / {{ product.title }}
+    {{ product.title }}
   </div>
-
 </header>
+
 <div class="product-wrapper">
   <div class="product" data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true" itemscope itemtype="http://schema.org/Product">
 
@@ -57,10 +57,18 @@
                   </div>
               {% endfor %}
           </div>
-          <div class="controls">
-            <button class="prev">{% include 'icon-arrow-left' %}</button>
-            <button class="next">{% include 'icon-arrow-right' %}</button>
+        <div class="controls">
+          <button class="prev">{% include 'icon-arrow-left' %}</button>
+          <button class="next">{% include 'icon-arrow-right' %}</button>
+        </div>
+        <header class="page-header mobile" role="banner">
+          <div class="icon-arrow-left">
+            <a href="{{ collection.url }}">{% include 'icon-arrow-left' %}</a>
           </div>
+          <div class="breadcrumbs">
+            {{ product.title }}
+          </div>
+        </header>
         </div>
       {% endif %}
     {% endif %}

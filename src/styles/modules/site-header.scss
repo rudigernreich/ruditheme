@@ -6,6 +6,7 @@
     width: 100%;
   }
 }
+
 .site-header {
 	position: fixed;
 	background: $rudibeige;
@@ -17,7 +18,9 @@
 	opacity: 1;
 	left: 0;
 	@include animationFromLeft(0.4s);
-
+	@include media-query($small) {
+		position: static;
+	}
 	.site-logo {
 		margin: 0 auto;
 		background: transparent;
@@ -57,5 +60,10 @@
 			display: block;
 			padding: 25px 20px 25px 21px;
 		}
+	}
+}
+@include media-query($small) {
+	.template-collection .site-header {
+		position: fixed;
 	}
 }

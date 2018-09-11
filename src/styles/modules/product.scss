@@ -21,6 +21,9 @@
 			}
 			.controls {
 				display: flex;
+				@include media-query($small) {
+					display: none;
+				}
 				width: 100%;
 				.prev, .next {
 					min-width: auto;

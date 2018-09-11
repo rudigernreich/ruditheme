@@ -7,6 +7,9 @@
 	align-items: center;
 	justify-content: center;
 	height: 100%;
+	@include media-query($small) {
+		height: calc(100% - 90px);
+	}
 }
 
 .cart-wrapper {
